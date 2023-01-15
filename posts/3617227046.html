@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>JS防抖与节流（类比游戏技能） - XC's Blog</title>
+
+  
+    <meta name="description" content="JS防抖与节流（类比游戏技能） 点击获取资料–2021最新前端面试题汇总  防抖生活中防抖的例子 酒店的自动开关门 感应到人自动开门，5s后自动关闭 如果5s的倒计时里有人来，那么这个5s重新开始计时    类比技能吟唱 知道释放一个法术(魔法)是需要吟唱时间的 比如死歌的R 比如波比的R   假设的技能没有CD 那么在技能还没有吟唱完的时候再一次使用技能会打断第一次施法，重新开始施法 在上次技能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS防抖与节流（类比游戏技能）">
+<meta property="og:url" content="https://www.webxc.ml/blog/posts/3617227046.html">
+<meta property="og:site_name" content="XC&#39;s Blog">
+<meta property="og:description" content="JS防抖与节流（类比游戏技能） 点击获取资料–2021最新前端面试题汇总  防抖生活中防抖的例子 酒店的自动开关门 感应到人自动开门，5s后自动关闭 如果5s的倒计时里有人来，那么这个5s重新开始计时    类比技能吟唱 知道释放一个法术(魔法)是需要吟唱时间的 比如死歌的R 比如波比的R   假设的技能没有CD 那么在技能还没有吟唱完的时候再一次使用技能会打断第一次施法，重新开始施法 在上次技能">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-26T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-09-01T16:27:17.616Z">
+<meta property="article:author" content="XC&#39;s Blog">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/blog/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="title" href="/blog/"><div class="main" ff="title">XC's Blog</div></a></div>
+
+<nav class="menu dis-select"></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">JS防抖与节流（类比游戏技能）</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JS%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81%EF%BC%88%E7%B1%BB%E6%AF%94%E6%B8%B8%E6%88%8F%E6%8A%80%E8%83%BD%EF%BC%89"><span class="toc-text">JS防抖与节流（类比游戏技能）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E6%8A%96"><span class="toc-text">防抖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%B4%BB%E4%B8%AD%E9%98%B2%E6%8A%96%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-text">生活中防抖的例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E6%AF%94%E6%8A%80%E8%83%BD%E5%90%9F%E5%94%B1"><span class="toc-text">类比技能吟唱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js%E4%B8%AD%E7%9A%84%E9%98%B2%E6%8A%96"><span class="toc-text">js中的防抖</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%EF%BC%8C%E9%81%BF%E5%85%8D%E6%B7%BB%E5%8A%A0%E5%93%8D%E5%BA%94%E7%9A%84%E6%97%B6%E5%80%99%E8%A7%A6%E5%8F%91%E5%87%BD%E6%95%B0"><span class="toc-text">1.使用高阶函数，避免添加响应的时候触发函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8setTimeout%E5%AE%8C%E6%88%90%E5%BB%B6%E6%97%B6%E6%89%A7%E8%A1%8C-clearTimeout%E6%9D%A5%E6%8E%A7%E5%88%B6%E5%88%B7%E6%96%B0%E5%BB%B6%E6%97%B6"><span class="toc-text">2.使用setTimeout完成延时执行,clearTimeout来控制刷新延时</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%8A%8Atimer%E5%AE%9A%E4%B9%89%E5%9C%A8%E5%87%BD%E6%95%B0%E5%A4%96%E9%9D%A2%EF%BC%9F"><span class="toc-text">2.1 为什么要把timer定义在函数外面？</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%B9%B6%E4%B8%8D%E6%98%AF%E4%B8%87%E4%BA%8B%E5%A4%A7%E5%90%89%EF%BC%8C%E6%B3%A8%E6%84%8Fthis%E6%8C%87%E9%92%88%E7%9A%84%E6%94%B9%E5%8F%98"><span class="toc-text">3.并不是万事大吉，注意this指针的改变</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-%E7%94%A8context%E4%BF%9D%E5%AD%98this%E6%8C%87%E9%92%88-args%E4%BF%9D%E5%AD%98%E6%B7%BB%E5%8A%A0%E7%9A%84%E5%8F%82%E6%95%B0-%E7%94%A8apply%E6%9D%A5%E6%94%B9%E5%8F%98this%E6%8C%87%E9%92%88%E7%9A%84%E6%8C%87%E5%90%91"><span class="toc-text">3.1 用context保存this指针,args保存添加的参数,用apply来改变this指针的指向</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-return%E7%9A%84function%E4%B8%8D%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0"><span class="toc-text">4.return的function不可以使用匿名函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8A%82%E6%B5%81"><span class="toc-text">节流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%B4%BB%E4%B8%AD%E8%8A%82%E6%B5%81%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-text">生活中节流的例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E6%AF%94%E5%B9%B3A%E5%83%B5%E7%9B%B4"><span class="toc-text">类比平A僵直</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js%E4%B8%AD%E7%9A%84%E8%8A%82%E6%B5%81"><span class="toc-text">js中的节流</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8%E5%AE%9A%E6%97%B6%E5%99%A8%E7%9A%84%E6%80%9D%E6%83%B3%E6%9D%A5%E5%AE%8C%E6%88%90"><span class="toc-text">1.使用定时器的思想来完成</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1%E6%A0%B9%E6%8D%AE%E6%80%9D%E8%B7%AF%E5%86%99%E5%87%BA%E5%9F%BA%E7%A1%80%E4%BB%A3%E7%A0%81"><span class="toc-text">1.1根据思路写出基础代码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8Date%E5%AF%B9%E8%B1%A1%E6%9D%A5%E5%AE%9E%E7%8E%B0"><span class="toc-text">2.使用Date对象来实现</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1%E7%BB%BC%E5%90%88%E5%89%8D%E9%9D%A2%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E7%9B%B4%E6%8E%A5%E5%86%99%E5%87%BA%E6%9D%A5"><span class="toc-text">2.1综合前面的问题，直接写出来</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E8%AE%A8%E8%AE%BA%E4%B8%80%E4%B8%8B%E5%89%8D%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%A1%88%E7%9A%84%E5%BC%8A%E7%AB%AF"><span class="toc-text">3.讨论一下前两种方案的弊端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Date%E7%BB%93%E5%90%88%E5%AE%9A%E6%97%B6%E5%99%A8%E8%A7%A3%E5%86%B33-%E7%9A%84%E5%BC%8A%E7%AB%AF"><span class="toc-text">4.Date结合定时器解决3.的弊端</span></a></li></ol></li></ol></li></ol></div></div></widget>
+
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/blog/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/blog/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/blog/categories/JavaScript/">JavaScript</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-08-26T00:00:00.000Z">2022-08-26</time></div></div>
+
+<article class='md-text content post'>
+<h1 class="article-title"><span>JS防抖与节流（类比游戏技能）</span></h1>
+<h2 id="JS防抖与节流（类比游戏技能）"><a href="#JS防抖与节流（类比游戏技能）" class="headerlink" title="JS防抖与节流（类比游戏技能）"></a>JS防抖与节流（类比游戏技能）</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/column/6964717704712290317">点击获取资料–2021最新前端面试题汇总</a></p>
+</blockquote>
+<h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><h3 id="生活中防抖的例子"><a href="#生活中防抖的例子" class="headerlink" title="生活中防抖的例子"></a>生活中防抖的例子</h3><ul>
+<li>酒店的自动开关门<ul>
+<li>感应到人自动开门，5s后自动关闭</li>
+<li>如果5s的倒计时里有人来，那么这个5s重新开始计时</li>
+</ul>
+</li>
+</ul>
+<h3 id="类比技能吟唱"><a href="#类比技能吟唱" class="headerlink" title="类比技能吟唱"></a>类比技能吟唱</h3><ul>
+<li>知道释放一个法术(魔法)是需要吟唱时间的<ul>
+<li>比如死歌的R</li>
+<li>比如波比的R</li>
+</ul>
+</li>
+<li>假设的技能没有CD<ul>
+<li>那么在技能还没有吟唱完的时候再一次使用技能会打断第一次施法，重新开始施法</li>
+<li>在上次技能没释放的时候释放下一次技能，第一次施法被打断是很好理解的吧</li>
+<li>重新施法，重新开始吟唱也是很好理解的吧</li>
+</ul>
+</li>
+</ul>
+<h3 id="js中的防抖"><a href="#js中的防抖" class="headerlink" title="js中的防抖"></a>js中的防抖</h3><ul>
+<li>如键盘输入等</li>
+</ul>
+<p>就和上面两个例子中提到的一样。<br>主要是用到了三点</p>
+<ul>
+<li>addEventListener</li>
+<li>setTimeout</li>
+<li>clearTimeout</li>
+</ul>
+<p>基础的html代码如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> button = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#input&#x27;</span>)</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">input</span> () &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;input!&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span> (fn,delay) &#123;</span><br><span class="line"><span class="comment">// Todo: 完成防抖</span></span><br><span class="line">&#125;</span><br><span class="line">button.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="title function_">debounce</span>(input,<span class="number">1000</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>因为防抖需要知道延时时间和完成的事件，所以防抖有两个参数</li>
+</ul>
+<h4 id="1-使用高阶函数，避免添加响应的时候触发函数"><a href="#1-使用高阶函数，避免添加响应的时候触发函数" class="headerlink" title="1.使用高阶函数，避免添加响应的时候触发函数"></a>1.使用高阶函数，避免添加响应的时候触发函数</h4><ul>
+<li>一步一步来，如果没有使用高阶函数而是直接调用函数，如下图，会在添加响应的时候触发fn()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span> (fn,delay) &#123;</span><br><span class="line">  <span class="title function_">fn</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>所以先改为高阶函数解决这个bug</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span> (fn,delay) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">fn</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-使用setTimeout完成延时执行-clearTimeout来控制刷新延时"><a href="#2-使用setTimeout完成延时执行-clearTimeout来控制刷新延时" class="headerlink" title="2.使用setTimeout完成延时执行,clearTimeout来控制刷新延时"></a>2.使用setTimeout完成延时执行,clearTimeout来控制刷新延时</h4><h5 id="2-1-为什么要把timer定义在函数外面？"><a href="#2-1-为什么要把timer定义在函数外面？" class="headerlink" title="2.1 为什么要把timer定义在函数外面？"></a>2.1 为什么要把timer定义在函数外面？</h5><p>为了形成闭包，这样在函数内部才能保证clearTimeout掉timer</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span> (fn, delay) &#123;</span><br><span class="line">  <span class="keyword">let</span> timer</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">      <span class="title function_">fn</span>()</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-并不是万事大吉，注意this指针的改变"><a href="#3-并不是万事大吉，注意this指针的改变" class="headerlink" title="3.并不是万事大吉，注意this指针的改变"></a>3.并不是万事大吉，注意this指针的改变</h4><p>在函数里面log一下this指针</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> button = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#input&#x27;</span>)</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">input</span> () &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;input!&#x27;</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span> (fn, delay) &#123;</span><br><span class="line">  <span class="keyword">let</span> timer</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">      <span class="title function_">fn</span>()</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">button.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="title function_">debounce</span>(input, <span class="number">300</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+<p>结果函数内部的this指针变成了window，这是肯定不行的</p>
+<h5 id="3-1-用context保存this指针-args保存添加的参数-用apply来改变this指针的指向"><a href="#3-1-用context保存this指针-args保存添加的参数-用apply来改变this指针的指向" class="headerlink" title="3.1 用context保存this指针,args保存添加的参数,用apply来改变this指针的指向"></a>3.1 用context保存this指针,args保存添加的参数,用apply来改变this指针的指向</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span> (fn, delay) &#123;</span><br><span class="line">    <span class="keyword">let</span> timer</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> context = <span class="variable language_">this</span></span><br><span class="line">        <span class="keyword">let</span> args=<span class="variable language_">arguments</span></span><br><span class="line">        <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">        timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            fn.<span class="title function_">apply</span>(context,args)</span><br><span class="line">        &#125;, delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>成功得到input的this指针</p>
+<h4 id="4-return的function不可以使用匿名函数"><a href="#4-return的function不可以使用匿名函数" class="headerlink" title="4.return的function不可以使用匿名函数"></a>4.return的function不可以使用匿名函数</h4><p>其实是可以用匿名函数来简化上面的代码的，但是只能简化<code>setTimeout</code>里面的函数</p>
+<ul>
+<li>需要拿到<code>function</code>里面的context上下文</li>
+<li>因为匿名函数没有<code>this</code>指针，所以<code>return</code>的函数写成匿名函数会出错，代码如下</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span> (fn, delay) &#123;</span><br><span class="line">     <span class="keyword">let</span> timer</span><br><span class="line">     <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">       <span class="keyword">let</span> context = <span class="variable language_">this</span></span><br><span class="line">       <span class="keyword">let</span> args=<span class="variable language_">arguments</span></span><br><span class="line">       <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">       timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">         fn.<span class="title function_">apply</span>(context,args)</span><br><span class="line">       &#125;, delay)</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这种写法，<code>this</code>指针会指向<code>window</code><br>最终代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span> (fn, delay) &#123;</span><br><span class="line">   <span class="keyword">let</span> timer</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">     <span class="keyword">let</span> context = <span class="variable language_">this</span></span><br><span class="line">     <span class="keyword">let</span> args = <span class="variable language_">arguments</span></span><br><span class="line">     <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">     timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">       fn.<span class="title function_">apply</span>(context, args)</span><br><span class="line">     &#125;, delay)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h2><h3 id="生活中节流的例子"><a href="#生活中节流的例子" class="headerlink" title="生活中节流的例子"></a>生活中节流的例子</h3><ul>
+<li>鲸鱼到水面换气<ul>
+<li>鲸鱼是哺乳动物，所以需要每隔一段时间到水面换气</li>
+<li>不一直在水面，因为还需要下潜保持皮肤的水分，这就和节约资源类似</li>
+<li>鲸鱼呷一口气，这口气能支撑1个小时，那鲸鱼就下潜了，1小时后再来换气</li>
+<li>这就是节流</li>
+</ul>
+</li>
+</ul>
+<h3 id="类比平A僵直"><a href="#类比平A僵直" class="headerlink" title="类比平A僵直"></a>类比平A僵直</h3><p>打过王者荣耀的都知道吧，拆塔的时候疯狂按攻击键？这没多大用</p>
+<p>你的攻击次数由你的攻击速度(攻击间隔时长)决定</p>
+<p>就是在上一次攻击指令完成前，是没有办法进行下一次攻击指令的</p>
+<p>平A的僵直就是节流</p>
+<h3 id="js中的节流"><a href="#js中的节流" class="headerlink" title="js中的节流"></a>js中的节流</h3><ul>
+<li>如滚动监听</li>
+</ul>
+<p>在上面防抖基础上，节流的介绍就不再那么啰嗦，直接开始编写节流的代码</p>
+<h4 id="1-使用定时器的思想来完成"><a href="#1-使用定时器的思想来完成" class="headerlink" title="1.使用定时器的思想来完成"></a>1.使用定时器的思想来完成</h4><h5 id="1-1根据思路写出基础代码"><a href="#1-1根据思路写出基础代码" class="headerlink" title="1.1根据思路写出基础代码"></a>1.1根据思路写出基础代码</h5><ul>
+<li>同样是高阶函数</li>
+<li>同样要操作timer，timer闭包</li>
+<li>如果上一次还没延时没结束，就啥也不做(判断timer是否存在即可)。完成节流任务</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span> (fn, delay) &#123;</span><br><span class="line">  <span class="keyword">let</span> timer</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (timer) <span class="keyword">return</span></span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">fn</span>()</span><br><span class="line">      timer = <span class="literal">null</span></span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>1.2关键点还是改变this的指向</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span> (fn, delay) &#123;</span><br><span class="line">      <span class="keyword">let</span> timer</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> context = <span class="variable language_">this</span></span><br><span class="line">        <span class="keyword">let</span> args = <span class="variable language_">arguments</span></span><br><span class="line">        <span class="keyword">if</span> (timer) <span class="keyword">return</span></span><br><span class="line">        timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">          fn.<span class="title function_">apply</span>(context, args)</span><br><span class="line">          timer = <span class="literal">null</span></span><br><span class="line">        &#125;, delay)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-使用Date对象来实现"><a href="#2-使用Date对象来实现" class="headerlink" title="2.使用Date对象来实现"></a>2.使用Date对象来实现</h4><h5 id="2-1综合前面的问题，直接写出来"><a href="#2-1综合前面的问题，直接写出来" class="headerlink" title="2.1综合前面的问题，直接写出来"></a>2.1综合前面的问题，直接写出来</h5><ul>
+<li>但是发现有一个问题，就是函数第一次会立即执行</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span> (fn, delay) &#123;</span><br><span class="line">  <span class="keyword">let</span> pre = <span class="number">0</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">    <span class="keyword">let</span> context = <span class="variable language_">this</span></span><br><span class="line">    <span class="keyword">let</span> args = <span class="variable language_">arguments</span></span><br><span class="line">    <span class="keyword">if</span> (now - pre &gt; delay) &#123;</span><br><span class="line">      fn.<span class="title function_">apply</span>(context, args)</span><br><span class="line">      pre = now</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>2.2可以第一次不立即执行吗？可以！</p>
+<p>判断，如果!pre就是第一次，第一次先拿到当前时间就可以了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span> (fn, delay) &#123;</span><br><span class="line">  <span class="keyword">let</span> pre = <span class="number">0</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!pre) pre = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">    <span class="keyword">let</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">    <span class="keyword">let</span> context = <span class="variable language_">this</span></span><br><span class="line">    <span class="keyword">let</span> args = <span class="variable language_">arguments</span></span><br><span class="line">    <span class="keyword">if</span> (now - pre &gt; delay) &#123;</span><br><span class="line">      fn.<span class="title function_">apply</span>(context, args)</span><br><span class="line">      pre = now</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-讨论一下前两种方案的弊端"><a href="#3-讨论一下前两种方案的弊端" class="headerlink" title="3.讨论一下前两种方案的弊端"></a>3.讨论一下前两种方案的弊端</h4><ul>
+<li>假设有两次请求，第一次正常，第二次被节流了</li>
+<li>最后只执行了一次，这是不愿意看到的！</li>
+<li>如何解决？请看第4点</li>
+</ul>
+<h4 id="4-Date结合定时器解决3-的弊端"><a href="#4-Date结合定时器解决3-的弊端" class="headerlink" title="4.Date结合定时器解决3.的弊端"></a>4.Date结合定时器解决3.的弊端</h4><ul>
+<li>在2中代码的基础上来添加</li>
+<li>闭包的timer,如果在节流时间内，就定一个定时器来完成被吃掉的请求</li>
+<li>定时为剩下的时间remainTime&#x3D;delay-(now-pre),定时前记得判断是否存在(存在就不用设置直接return就可以了)，完成后记得要更新pre和timer&#x3D;null</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span> (fn, delay) &#123;</span><br><span class="line">  <span class="keyword">let</span> pre = <span class="number">0</span></span><br><span class="line">  <span class="keyword">let</span> timer</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!pre) pre = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">    <span class="keyword">let</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">    <span class="keyword">let</span> context = <span class="variable language_">this</span></span><br><span class="line">    <span class="keyword">let</span> args = <span class="variable language_">arguments</span></span><br><span class="line">    <span class="keyword">let</span> remainTime = delay - (now - pre)</span><br><span class="line">    <span class="keyword">if</span> (now - pre &gt; delay) &#123;</span><br><span class="line">      fn.<span class="title function_">apply</span>(context, args)</span><br><span class="line">      pre = now</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (timer) <span class="keyword">return</span></span><br><span class="line">      timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        fn.<span class="title function_">apply</span>(context, args)</span><br><span class="line">        pre = now</span><br><span class="line">        timer = <span class="literal">null</span></span><br><span class="line">      &#125;, remainTime)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/blog/posts/3486264073.html">This指向与改变This指向</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/blog/posts/1775894433.html">如何在1分钟内完美解释什么是 JSONP 请求？</a></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.5';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/blog/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

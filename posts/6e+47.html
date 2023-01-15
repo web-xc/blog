@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>JavaScript 第三天 - XC's Blog</title>
+
+  
+    <meta name="description" content="JavaScript 基础第一天 — for 循环  和  array 数组1. for循环基本使用: for循环也是重复执行代码  好处: 把声明起始值、循环条件、变化值写到一起，一目了然  如果明确循环次数的时候使用for循环  不明确循环次数的时候使用while循环 123for (声明变量; 循环条件; 变化值) &amp;#123;    &#x2F;&#x2F; 循环体&amp;#125;  for 输出1到100偶数之">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 第三天">
+<meta property="og:url" content="https://www.webxc.ml/blog/posts/6e+47.html">
+<meta property="og:site_name" content="XC&#39;s Blog">
+<meta property="og:description" content="JavaScript 基础第一天 — for 循环  和  array 数组1. for循环基本使用: for循环也是重复执行代码  好处: 把声明起始值、循环条件、变化值写到一起，一目了然  如果明确循环次数的时候使用for循环  不明确循环次数的时候使用while循环 123for (声明变量; 循环条件; 变化值) &amp;#123;    &#x2F;&#x2F; 循环体&amp;#125;  for 输出1到100偶数之">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/web-xc/iMG@main/postss/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.jpg">
+<meta property="article:published_time" content="2022-12-27T15:30:00.000Z">
+<meta property="article:modified_time" content="2023-01-14T17:35:59.732Z">
+<meta property="article:author" content="XC&#39;s Blog">
+<meta property="article:tag" content="JavaScript笔记">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.staticaly.com/gh/web-xc/iMG@main/postss/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.jpg">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/blog/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="title" href="/blog/"><div class="main" ff="title">XC's Blog</div></a></div>
+
+<nav class="menu dis-select"></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">JavaScript 第三天</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript-%E5%9F%BA%E7%A1%80%E7%AC%AC%E4%B8%80%E5%A4%A9-%E2%80%94-for-%E5%BE%AA%E7%8E%AF-%E5%92%8C-array-%E6%95%B0%E7%BB%84"><span class="toc-text">JavaScript 基础第一天 — for 循环  和  array 数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-for%E5%BE%AA%E7%8E%AF%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-text">1. for循环基本使用:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BE%AA%E7%8E%AF%E9%80%80%E5%87%BA"><span class="toc-text">2. 循环退出:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-for-%E5%BE%AA%E7%8E%AF%E5%B5%8C%E5%A5%97"><span class="toc-text">3. for 循环嵌套:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%95%B0%E7%BB%84%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-text">4. 数组的基本使用:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-for-%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84"><span class="toc-text">5. for 遍历数组:</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8for%E5%BE%AA%E7%8E%AF-%E6%B1%82%E6%95%B0%E7%BB%84%E7%9A%84-%E5%92%8C-x2F-%E5%B9%B3%E5%9D%87%E5%80%BC"><span class="toc-text">1. 使用for循环 求数组的 和&#x2F;平均值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8for%E5%BE%AA%E7%8E%AF-%E6%B1%82%E6%95%B0%E7%BB%84%E6%9C%80%E5%A4%A7%E5%80%BC"><span class="toc-text">2. 使用for循环 求数组最大值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8for%E5%BE%AA%E7%8E%AF-%E6%B1%82%E6%95%B0%E7%BB%84%E4%B8%AD%E5%A4%A7%E4%BA%8E%E7%AD%89%E4%BA%8E5%E7%9A%84%E5%92%8C-45"><span class="toc-text">3. 使用for循环 求数组中大于等于5的和 45</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E4%BD%BF%E7%94%A8for%E5%BE%AA%E7%8E%AF-%E8%AE%A1%E7%AE%97%E4%BB%A5%E4%B8%8B%E6%95%B0%E7%BB%84%E4%B8%AD%E8%83%BD%E8%A2%AB3%E6%95%B4%E9%99%A4%E7%9A%84%E5%81%B6%E6%95%B0%E7%9A%84%E5%92%8C-24"><span class="toc-text">4. 使用for循环 计算以下数组中能被3整除的偶数的和 24</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E6%93%8D%E4%BD%9C%E6%95%B0%E7%BB%84"><span class="toc-text">6. 操作数组:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%A2%9E%EF%BC%9A%E6%95%B0%E7%BB%84%E5%A2%9E%E5%8A%A0%E6%96%B0%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-text">1. 增：数组增加新的数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%EF%BC%91-%E6%95%B0%E7%BB%84%E7%AD%9B%E9%80%89-%E5%B0%86%E6%95%B0%E7%BB%84%E4%B8%AD%E5%A4%A7%E4%BA%8E%E7%AD%89%E4%BA%8E10%E7%9A%84%E5%85%83%E7%B4%A0%E9%80%89%E5%87%BA%E6%9D%A5-%E6%94%BE%E5%85%A5%E6%96%B0%E6%95%B0%E7%BB%84"><span class="toc-text">１. 数组筛选, 将数组中大于等于10的元素选出来, 放入新数组</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E6%95%B0%E7%BB%84%E5%8E%BB0-%E5%B0%86%E6%95%B0%E7%BB%84%E4%B8%AD0%E5%8E%BB%E6%8E%89-%E5%BD%A2%E6%88%90%E4%B8%8D%E5%8C%85%E5%90%AB0%E7%9A%84%E6%96%B0%E6%95%B0%E7%BB%84"><span class="toc-text">2. 数组去0, 将数组中0去掉, 形成不包含0的新数组</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%88%A0-%E6%95%B0%E7%BB%84%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0"><span class="toc-text">2. 删: 数组删除元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">3. 删除元素的使用场景:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="toc-text">7. 冒泡排序:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E6%A0%B9%E6%8D%AE%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E7%94%9F%E6%88%90%E6%9F%B1%E5%BD%A2%E5%9B%BE"><span class="toc-text">8. 根据输入数据生成柱形图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E6%9C%AC%E8%8A%82%E5%8D%95%E8%AF%8D"><span class="toc-text">9. 本节单词:</span></a></li></ol></div></div></widget>
+
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/blog/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/blog/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/blog/categories/JavaScript%E7%AC%94%E8%AE%B0/">JavaScript笔记</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-12-27T15:30:00.000Z">2022-12-27</time></div></div>
+
+<article class='md-text content post'>
+<h1 class="article-title"><span>JavaScript 第三天</span></h1>
+<h3 id="JavaScript-基础第一天-—-for-循环-和-array-数组"><a href="#JavaScript-基础第一天-—-for-循环-和-array-数组" class="headerlink" title="JavaScript 基础第一天 — for 循环  和  array 数组"></a>JavaScript 基础第一天 — for 循环  和  array 数组</h3><h3 id="1-for循环基本使用"><a href="#1-for循环基本使用" class="headerlink" title="1. for循环基本使用:"></a>1. for循环基本使用:</h3><ol>
+<li><p>for循环也是重复执行代码</p>
+</li>
+<li><p>好处: 把声明起始值、循环条件、变化值写到一起，一目了然</p>
+</li>
+<li><p>如果明确循环次数的时候使用for循环</p>
+</li>
+<li><p>不明确循环次数的时候使用while循环</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (声明变量; 循环条件; 变化值) &#123;</span><br><span class="line">    <span class="comment">// 循环体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>for 输出1到100偶数之间的和</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num1 = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> num2 = <span class="number">1</span>; num2 &lt;= <span class="number">100</span>; num2++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (num2 % <span class="number">2</span> === <span class="number">0</span>) &#123;</span><br><span class="line">        num1 += num2</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>for循环 最大优势是<strong>遍历数组</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num1 = [<span class="string">&#x27;pink&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>, <span class="string">&#x27;green&#x27;</span>]</span><br><span class="line"><span class="comment">// num1.length和&lt;=3的区别</span></span><br><span class="line"><span class="comment">// for (let num2 = 0; num2 &lt;= 3; num2++) &#123;</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> num2 = <span class="number">0</span>; num2 &lt; num1.<span class="property">length</span>; num2++) &#123;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">write</span>(num1[num2])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="2-循环退出"><a href="#2-循环退出" class="headerlink" title="2. 循环退出:"></a>2. 循环退出:</h3><ol>
+<li><p>continue：结束本次循环，继续下次循环</p>
+</li>
+<li><p>break：直接结束本次循环</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> num1= <span class="number">1</span>; num1 &lt;= <span class="number">6</span>; num1++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (num1 === <span class="number">3</span>) &#123;</span><br><span class="line">        <span class="comment">// continue 退出本次循环, 继续下次循环</span></span><br><span class="line">        <span class="comment">// break 直接结束本次循环  </span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">write</span>(num1)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="3-for-循环嵌套"><a href="#3-for-循环嵌套" class="headerlink" title="3. for 循环嵌套:"></a>3. for 循环嵌套:</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">一个循环里再套一个循环，一般用在<span class="keyword">for</span>循环里</span><br><span class="line"><span class="keyword">for</span> (外部声明变量; 循环条件 变化值) &#123;</span><br><span class="line">    <span class="keyword">for</span> (内部声明变量; 循环条件; 变化值) &#123;</span><br><span class="line">        <span class="comment">// 循环体</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>使用 for 嵌套 用户输入后打印几行几列星星</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num1 = <span class="title function_">prompt</span>(<span class="string">&#x27;请输入多少列个星&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> num2 = <span class="title function_">prompt</span>(<span class="string">&#x27;请输入多少行个星&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> num3 = <span class="number">1</span>; num3 &lt;= num1; num3++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> num4 = <span class="number">1</span>; num4 &lt;= num2; num4++) &#123;</span><br><span class="line">        <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&#x27;❤&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">`&lt;br&gt;`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>打印倒三角形星星, 外循环控制行, 内循环控制列打印几个  内循环个数跟第几行是一一对应的</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> num1 = <span class="number">1</span>; num1 &lt;= <span class="number">5</span>; num1++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> num2 = <span class="number">1</span>; num2 &lt;= num1; num2++) &#123;</span><br><span class="line">        <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&#x27;💚&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">`&lt;br&gt;`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>使用for 嵌套 打印九九乘法表</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> num1 = <span class="number">1</span>; num1 &lt;= <span class="number">9</span>; num1++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> num2 = <span class="number">1</span>; num2 &lt;= num1; num2++) &#123;</span><br><span class="line">        <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">`<span class="subst">$&#123;num2&#125;</span> x <span class="subst">$&#123;num1&#125;</span> = <span class="subst">$&#123;num1 * num2&#125;</span>`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">`&lt;br&gt;`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="4-数组的基本使用"><a href="#4-数组的基本使用" class="headerlink" title="4. 数组的基本使用:"></a>4. 数组的基本使用:</h3><ol>
+<li>数组(Array)是一种可以<strong>按顺序保存数据的数据类型</strong></li>
+<li>在数组中，数据的编号也叫<strong>索引或下标</strong></li>
+<li>数组是按顺序保存，每个数据都有自己的编号</li>
+<li>数组可以存储<strong>任意类型的数据</strong></li>
+<li>如果有多个数据可用数组保存</li>
+<li>计算机中的编号从0开始，第一个编号为0，第二个编号为1，以此类推</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> 数组名 = [数据<span class="number">1</span>, 数据<span class="number">2</span>, 数据<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>通过下标取数据</p>
+</li>
+<li><p>取出来什么类型，就根据这种类型特点来访问</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">num[<span class="number">0</span>] num[<span class="number">1</span>] num[<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>元素：数组中保存的每个数据都叫<strong>数组元素</strong></p>
+</li>
+<li><p>下标：数组中<strong>数据的编号</strong></p>
+</li>
+<li><p>长度：数组中<strong>数据的个数</strong>，通过数组的length属性获得</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num [<span class="string">&#x27;pink&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>, <span class="string">&#x27;green&#x27;</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num[<span class="number">0</span>]) <span class="comment">// pink</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num.<span class="property">length</span>) <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-for-遍历数组"><a href="#5-for-遍历数组" class="headerlink" title="5. for 遍历数组:"></a>5. for 遍历数组:</h3><ol>
+<li>用循环把数组中每个元素都访问到,一般会用<strong>for循环遍历</strong></li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; 数组名.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 数组名[i]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-使用for循环-求数组的-和-x2F-平均值"><a href="#1-使用for循环-求数组的-和-x2F-平均值" class="headerlink" title="1. 使用for循环 求数组的 和&#x2F;平均值"></a>1. 使用for循环 求数组的 和&#x2F;平均值</h5><ol>
+<li>声明一个求和变量 num2</li>
+<li>遍历这个数组，把里面每个数组元素加到 num2 里面 </li>
+<li>用求和变量 num2 除以数组的长度得到数组的平均值</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num1 = [<span class="number">2</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">4</span>]</span><br><span class="line"><span class="keyword">let</span> num2 = <span class="number">0</span></span><br><span class="line"><span class="keyword">let</span> num3 = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> (num4 = <span class="number">0</span>; num4 &lt; num1.<span class="property">length</span>; num4++) &#123;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">write</span>(num1[num4])</span><br><span class="line">    num2 += num1[num4]</span><br><span class="line">&#125;</span><br><span class="line">num3 = num2 / num1.<span class="property">length</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">`和是<span class="subst">$&#123;num2&#125;</span>,平均值是<span class="subst">$&#123;num3&#125;</span>`</span>)</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-使用for循环-求数组最大值"><a href="#2-使用for循环-求数组最大值" class="headerlink" title="2. 使用for循环 求数组最大值"></a>2. 使用for循环 求数组最大值</h5><ol>
+<li>声明一个保存最大元素的变量 num2</li>
+<li>默认最大值可以取数组中的第一个元素</li>
+<li>遍历这个数组，把每个数组元素和 num2 相比较</li>
+<li>如果这个数组元素大于num2 就把这个数组元素存到 num2 里面，否则继续下一轮比较</li>
+<li>最后输出这个 num2</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num1 = [<span class="number">2</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">77</span>, <span class="number">52</span>, <span class="number">25</span>, <span class="number">7</span>]</span><br><span class="line"><span class="keyword">let</span> num2 = num1[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> num3 = <span class="number">1</span>; num3 &lt; num1.<span class="property">length</span>; num3++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (num2 &lt; num1[num3]) &#123;</span><br><span class="line">        num2 = num1[num3]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(num2)</span><br></pre></td></tr></table></figure>
+<h5 id="3-使用for循环-求数组中大于等于5的和-45"><a href="#3-使用for循环-求数组中大于等于5的和-45" class="headerlink" title="3. 使用for循环 求数组中大于等于5的和 45"></a>3. 使用for循环 求数组中大于等于5的和 45</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num1 = [<span class="number">4</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">20</span>, <span class="number">3</span>, <span class="number">11</span>]</span><br><span class="line"><span class="keyword">let</span> num2 = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> num3 = <span class="number">0</span>; num3 &lt; num1.<span class="property">length</span>; num3++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (num1[num3] &gt;= <span class="number">5</span>) &#123;</span><br><span class="line">        num2 += num1[num3]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(num2)</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-使用for循环-计算以下数组中能被3整除的偶数的和-24"><a href="#4-使用for循环-计算以下数组中能被3整除的偶数的和-24" class="headerlink" title="4. 使用for循环 计算以下数组中能被3整除的偶数的和 24"></a>4. 使用for循环 计算以下数组中能被3整除的偶数的和 24</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num1 = [<span class="number">2</span>, <span class="number">6</span>, <span class="number">18</span>, <span class="number">15</span>, <span class="number">40</span>]</span><br><span class="line"><span class="keyword">let</span> num2 = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> num3 = <span class="number">0</span>; num3 &lt; num1.<span class="property">length</span>; num3++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (num1[num3] % <span class="number">3</span> === <span class="number">0</span> &amp;&amp; num1[num3] % <span class="number">2</span> === <span class="number">0</span>) &#123;</span><br><span class="line">        num2 += num1[num3]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="6-操作数组"><a href="#6-操作数组" class="headerlink" title="6. 操作数组:"></a>6. 操作数组:</h3><ol>
+<li>数组本质是<strong>数据集合</strong>, 操作数据无非是<strong>增、删、改、查</strong></li>
+<li>查: 查询数组数据, <strong>数组[下标]</strong>, 称为<strong>访问数组数据</strong></li>
+<li>改: 重新赋值, <strong>数组[下标] &#x3D; 新值</strong></li>
+<li>增: 数组添加新数据, <strong>arr.push(新增内容)、arr.unshift(新增内容)</strong></li>
+<li>删: 删除数组中数据, <strong>arr.pop()、arr.shift()、arr.splice(操作下标,删除个数)</strong></li>
+</ol>
+<h4 id="1-增：数组增加新的数据"><a href="#1-增：数组增加新的数据" class="headerlink" title="1. 增：数组增加新的数据"></a>1. 增：数组增加新的数据</h4><ol>
+<li>数组.push()：将一个或多个元素<strong>添加到数组的末尾</strong>，并<strong>返回该数组的新长度</strong> (重点💖)</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num1 = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="comment">// push 添加新数组到末尾</span></span><br><span class="line">num1.<span class="title function_">push</span>(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>arr.unshift(新增的内容)：将一个或多个元素<strong>添加到数组的开头</strong>，并返回该数组的新长度</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num1 = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="comment">// unshift 添加新数组到第一个</span></span><br><span class="line">num1.<span class="title function_">unshift</span>(<span class="number">3</span>)</span><br><span class="line"><span class="comment">// 添加一个新数组并返回数组的长度</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num1.<span class="title function_">push</span>(<span class="number">4</span>))</span><br></pre></td></tr></table></figure>
+
+<h5 id="１-数组筛选-将数组中大于等于10的元素选出来-放入新数组"><a href="#１-数组筛选-将数组中大于等于10的元素选出来-放入新数组" class="headerlink" title="１. 数组筛选, 将数组中大于等于10的元素选出来, 放入新数组"></a>１. 数组筛选, 将数组中大于等于10的元素选出来, 放入新数组</h5><ol>
+<li>声明一个新数组用于存放新数据 num2</li>
+<li>遍历原来的旧数组, 找出大于等于10的元素</li>
+<li>依次追加给新数组num2</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num1 = [<span class="number">2</span>, <span class="number">0</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">77</span>, <span class="number">0</span>, <span class="number">52</span>, <span class="number">0</span>, <span class="number">25</span>, <span class="number">7</span>]</span><br><span class="line"><span class="keyword">let</span> num2 = []</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> num3 = <span class="number">0</span>; num3 &lt; num1.<span class="property">length</span>; num3++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (num1[num3] &gt;= <span class="number">10</span>) &#123;</span><br><span class="line">        num2.<span class="title function_">push</span>(num1[num3])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(num2)</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-数组去0-将数组中0去掉-形成不包含0的新数组"><a href="#2-数组去0-将数组中0去掉-形成不包含0的新数组" class="headerlink" title="2. 数组去0, 将数组中0去掉, 形成不包含0的新数组"></a>2. 数组去0, 将数组中0去掉, 形成不包含0的新数组</h5><ol>
+<li>声明一个新数组用于存放新数据num2</li>
+<li>遍历原来的旧数组, 找出不等于0的元素</li>
+<li>依次追加给新数组num2</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num1 = [<span class="number">2</span>, <span class="number">0</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">77</span>, <span class="number">0</span>, <span class="number">52</span>, <span class="number">0</span>, <span class="number">25</span>, <span class="number">7</span>]</span><br><span class="line"><span class="keyword">let</span> num2 = []</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> num3 = <span class="number">0</span>; num3 &lt; num1.<span class="property">length</span>; num3++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (num1[num3] !== <span class="number">0</span>) &#123;</span><br><span class="line">        num2.<span class="title function_">push</span>(num1[num3])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(num2)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-删-数组删除元素"><a href="#2-删-数组删除元素" class="headerlink" title="2. 删: 数组删除元素"></a>2. 删: 数组删除元素</h4><ol>
+<li>数组. pop(): 从数组中<strong>删除最后一个元素</strong>, 并返回该元素的值</li>
+<li>数组. shift(): 从数组中<strong>删除第一个元素</strong>, 并返回该元素的值</li>
+<li>数组. splice(): 删除<strong>指定元素</strong></li>
+<li>start: 起始位置, 指定修改的开始位置 <strong>(从0计数)</strong></li>
+<li>deletecount: 删除数组的个数, 省略则默认从指定起始位置<strong>删除到最后</strong></li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num1 = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>]</span><br><span class="line"><span class="comment">// 删除数组中最后一个元素</span></span><br><span class="line">num1.<span class="title function_">pop</span>()</span><br><span class="line"><span class="comment">// 删除数组中第一个元素</span></span><br><span class="line">num1.<span class="title function_">shift</span>()</span><br><span class="line"><span class="comment">// 从第三个元素删除到第六个元素</span></span><br><span class="line"><span class="comment">// num1.splice(start起始位置, deletecount删除几个元素)</span></span><br><span class="line">num1.<span class="title function_">splice</span>(<span class="number">3</span>, <span class="number">6</span>)</span><br><span class="line"><span class="comment">// 添加一个新数组并返回删除的元素</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num1.<span class="title function_">pop</span>())</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-删除元素的使用场景"><a href="#3-删除元素的使用场景" class="headerlink" title="3. 删除元素的使用场景:"></a>3. 删除元素的使用场景:</h4><ol>
+<li>开发很常用, 比如随机抽奖、删除指定商品…</li>
+<li>随机抽奖, 中奖用户需要从数组里删除, 不允许重复抽奖</li>
+<li>点击删除按钮, 相关数据会从商品数据中删除 后期会用到删除操作, 特别是splice</li>
+</ol>
+<hr>
+<h3 id="7-冒泡排序"><a href="#7-冒泡排序" class="headerlink" title="7. 冒泡排序:"></a>7. 冒泡排序:</h3><ol>
+<li>冒泡排序是一种<strong>简单的排序算法</strong></li>
+<li>它<strong>重复的走访要排序的数列</strong>, <strong>一次比较两个元素</strong>, 如果它们<strong>顺序错误就把它交换过来</strong>, 走访数列的工作是<strong>重复的进行直到没有再需要交换</strong>, 也就是说该数列已经排序完成</li>
+<li>这个算法名字由来是因为越小元素会由交换慢慢 ‘浮’ 到数列的顶端</li>
+<li>比如数组 [2,3,1,4,5] 经过排序成为了 [1,2,3,4,5] 或者 [5,4,3,2,1]</li>
+</ol>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.staticaly.com/gh/web-xc/iMG@main/postss/冒泡排序.jpg" style="zoom:33%;" />
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num1 = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</span><br><span class="line"><span class="comment">// 1.一共需要的趟数, 5个数据我们要走4趟, 用外层for循环</span></span><br><span class="line"><span class="comment">// 所以: 数组的长度减去1 length - 1</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> num2 = <span class="number">0</span>; num2 &lt; num1.<span class="property">length</span> - <span class="number">1</span>; num2++) &#123;</span><br><span class="line">    <span class="comment">// 2.每一趟交换次数, 用内层循环 </span></span><br><span class="line">    <span class="comment">// 所以: 减去数组长度1 但我们从0开始, 就是 length - num2 - 1</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> num3 = <span class="number">0</span>; num3 &lt; num1.<span class="property">length</span> - num2 - <span class="number">1</span>; num3++) &#123;</span><br><span class="line">        <span class="comment">// 3.if 做判断 0 大于 1 执行交换变量</span></span><br><span class="line">        <span class="keyword">if</span> (num1[num3] &gt; num1[num3 + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="comment">// 4.交换变量</span></span><br><span class="line">            <span class="keyword">let</span> temp = num1[num3]</span><br><span class="line">            num1[num3] = num1[num3 + <span class="number">1</span>]</span><br><span class="line">            num1[num3 + <span class="number">1</span>] = temp</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(num1)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="8-根据输入数据生成柱形图"><a href="#8-根据输入数据生成柱形图" class="headerlink" title="8. 根据输入数据生成柱形图"></a>8. 根据输入数据生成柱形图</h3><ol>
+<li>需要输入4次，所以把4个数据放到一个数组里 num1[]</li>
+<li>利用循环，弹出4次输入框，同时存到数组里面 num1[]</li>
+<li>遍历改数组，根据数据生成4个柱形图，渲染打印到页面中</li>
+<li>柱形图就是div盒子, 设置宽度固定, 高度是用户输入的数据</li>
+<li>div里面包含显示的数字和第N季度</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用循环弹出四次输入框, 会得到4个数据，放到num1数组里</span></span><br><span class="line"><span class="keyword">let</span> num1 = []</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> num2 = <span class="number">1</span>; num2 &lt;= <span class="number">4</span>; num2++) &#123;</span><br><span class="line">    num1.<span class="title function_">push</span>(<span class="title function_">prompt</span>(<span class="string">`请输入第<span class="subst">$&#123;num2&#125;</span>季度数据`</span>))</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num1)</span><br><span class="line"><span class="comment">// 注意渲染循环的是柱子</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">`&lt;div class =&quot;box&quot;&gt;`</span>)</span><br><span class="line"><span class="comment">// 循环4个柱子</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> num2 = <span class="number">0</span>; num2 &lt; num1.<span class="property">length</span>; num2++) &#123;</span><br><span class="line">        <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">`</span></span><br><span class="line"><span class="string">     &lt;div style=&quot;height: <span class="subst">$&#123;num1[num2]&#125;</span>px;&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;span&gt;<span class="subst">$&#123;num1[num2]&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">        &lt;h4&gt;第<span class="subst">$&#123;num2 + <span class="number">1</span>&#125;</span>季度&lt;/h4&gt;</span></span><br><span class="line"><span class="string">     &lt;/div&gt;</span></span><br><span class="line"><span class="string">     `</span>)</span><br><span class="line">    &#125;</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">`&lt;/div&gt;`</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="9-本节单词"><a href="#9-本节单词" class="headerlink" title="9. 本节单词:"></a>9. 本节单词:</h3><ol>
+<li>for</li>
+<li>array</li>
+<li>arr</li>
+<li>push</li>
+<li>unshift</li>
+<li>pop</li>
+<li>shift</li>
+<li>splice</li>
+<li>continue</li>
+<li>break</li>
+<li>start</li>
+<li>deletecount</li>
+</ol>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/blog/posts/623e.html">JavaScript 第二天</a></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.5';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/blog/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>CSS高级技巧 - XC's Blog</title>
+
+  
+    <meta name="description" content="CSS高级技巧 CSS 属性书写顺序(重点): 布局定位属性：display &#x2F; position &#x2F; float &#x2F; clear &#x2F; visibility &#x2F; overflow  自身属性：width &#x2F; height &#x2F; margin &#x2F; padding &#x2F; border &#x2F; backgroun">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS高级技巧">
+<meta property="og:url" content="https://www.webxc.ml/blog/posts/3398.html">
+<meta property="og:site_name" content="XC&#39;s Blog">
+<meta property="og:description" content="CSS高级技巧 CSS 属性书写顺序(重点): 布局定位属性：display &#x2F; position &#x2F; float &#x2F; clear &#x2F; visibility &#x2F; overflow  自身属性：width &#x2F; height &#x2F; margin &#x2F; padding &#x2F; border &#x2F; backgroun">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn1.tianli0.top/gh/web-xc/iMG/postss/cssgjjq.png">
+<meta property="og:image" content="https://cdn1.tianli0.top/gh/web-xc/iMG@main/postss/%E6%96%B0%E5%A2%9E%E8%A1%A8%E5%8D%95.webp">
+<meta property="og:image" content="https://cdn1.tianli0.top/gh/web-xc/iMG/postss/%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8.png">
+<meta property="article:published_time" content="2022-10-06T10:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-05T05:55:06.216Z">
+<meta property="article:author" content="XC&#39;s Blog">
+<meta property="article:tag" content="学习笔记-CSS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn1.tianli0.top/gh/web-xc/iMG/postss/cssgjjq.png">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/blog/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="title" href="/blog/"><div class="main" ff="title">XC's Blog</div></a></div>
+
+<nav class="menu dis-select"></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">CSS高级技巧</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7"><span class="toc-text">CSS高级技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-%E5%B1%9E%E6%80%A7%E4%B9%A6%E5%86%99%E9%A1%BA%E5%BA%8F-%E9%87%8D%E7%82%B9"><span class="toc-text">CSS 属性书写顺序(重点):</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%88%90%E5%90%8E%E7%9A%84%E7%9B%AE%E5%BD%95%E5%8F%8A%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-text">完成后的目录及文件结构:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B2%BE%E7%81%B5%E5%9B%BE%EF%BC%88sprites%EF%BC%89%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">精灵图（sprites）的使用:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AE%E5%BB%93%E7%BA%BF-outline"><span class="toc-text">轮廓线 outline:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E6%AD%A2%E6%8B%96%E6%8B%BD%E6%96%87%E6%9C%AC%E5%9F%9F-resize"><span class="toc-text">防止拖拽文本域 resize:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E8%A1%8C%E6%96%87%E6%9C%AC%E6%BA%A2%E5%87%BA%E6%98%BE%E7%A4%BA%E7%9C%81%E7%95%A5%E5%8F%B7"><span class="toc-text">多行文本溢出显示省略号:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E8%A1%A8%E5%8D%95%E7%B1%BB%E5%9E%8B"><span class="toc-text">常见表单类型:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5-%E6%96%B0%E5%A2%9E%E7%9A%84%E8%A1%A8%E5%8D%95%E5%B1%9E%E6%80%A7"><span class="toc-text">HTML5 新增的表单属性:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">属性选择器:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E7%89%B9%E6%80%A7"><span class="toc-text">其他特性:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BE%E6%A0%87%E5%8F%98%E6%A8%A1%E7%B3%8A-%E2%80%93-CSS3%E6%BB%A4%E9%95%9Cfilter"><span class="toc-text">图标变模糊  – CSS3滤镜filter:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E7%9B%92%E5%AD%90%E5%AE%BD%E5%BA%A6-%E2%80%93-calc-%E5%87%BD%E6%95%B0"><span class="toc-text">计算盒子宽度 – calc 函数:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-text">HTML5新特性:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SEO%E4%B8%89%E5%A4%A7%E6%A0%87%E7%AD%BE"><span class="toc-text">SEO三大标签:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ico%E5%9B%BE%E6%A0%87%E8%AE%BE%E7%BD%AE"><span class="toc-text">ico图标设置:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E8%8A%82%E5%8D%95%E8%AF%8D%EF%BC%9A"><span class="toc-text">本节单词：</span></a></li></ol></li></ol></li></ol></div></div></widget>
+
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/blog/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/blog/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/blog/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-CSS/">学习笔记-CSS</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-10-06T10:00:00.000Z">2022-10-06</time></div></div>
+
+<article class='md-text content post'>
+<h1 class="article-title"><span>CSS高级技巧</span></h1>
+<h2 id="CSS高级技巧"><a href="#CSS高级技巧" class="headerlink" title="CSS高级技巧"></a>CSS高级技巧</h2><hr>
+<h3 id="CSS-属性书写顺序-重点"><a href="#CSS-属性书写顺序-重点" class="headerlink" title="CSS 属性书写顺序(重点):"></a>CSS 属性书写顺序(重点):</h3><ol>
+<li><p><strong>布局定位属性：display &#x2F; position &#x2F; float &#x2F; clear &#x2F; visibility &#x2F; overflow</strong></p>
+</li>
+<li><p><strong>自身属性：width &#x2F; height &#x2F; margin &#x2F; padding &#x2F; border &#x2F; background</strong> </p>
+</li>
+<li><p><strong>文本属性：color &#x2F; font &#x2F; text-decoration &#x2F; text-align &#x2F; vertical-align &#x2F; white- space &#x2F; break-wor</strong></p>
+</li>
+<li><p><strong>其他属性CSS3：content &#x2F; cursor &#x2F; border-radius &#x2F; box-shadow &#x2F; text-shadow &#x2F; background:linear-gradient …</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">display</span>: block;</span><br><span class="line"><span class="attribute">position</span>: relative;</span><br><span class="line"><span class="attribute">float</span>: left;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">height</span>: <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">font-family</span>: sans-serif;</span><br><span class="line"><span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line"><span class="attribute">background</span>: <span class="number">#fff</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h3 id="完成后的目录及文件结构"><a href="#完成后的目录及文件结构" class="headerlink" title="完成后的目录及文件结构:"></a>完成后的目录及文件结构:</h3>   <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn1.tianli0.top/gh/web-xc/iMG/postss/cssgjjq.png" style="zoom: 50%;" />
+
+<hr>
+<h3 id="精灵图（sprites）的使用"><a href="#精灵图（sprites）的使用" class="headerlink" title="精灵图（sprites）的使用:"></a>精灵图（sprites）的使用:</h3><ol>
+<li>精灵图主要针对于小的背景图片使用</li>
+<li>主要借助于背景位置来实现—<strong>background-position</strong> </li>
+<li>一般情况下精灵图都是负值。（ X轴右边走是正值，左边走是负值， Y轴同理）</li>
+</ol>
+<hr>
+<h3 id="轮廓线-outline"><a href="#轮廓线-outline" class="headerlink" title="轮廓线 outline:"></a>轮廓线 outline:</h3><p>给表单添加 <strong>outline: 0;</strong> 或者 <strong>outline: none;</strong> 样式之后，就可以去掉默认的蓝色边框</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">input</span> &#123;<span class="attribute">outline</span>: none; &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="防止拖拽文本域-resize"><a href="#防止拖拽文本域-resize" class="headerlink" title="防止拖拽文本域 resize:"></a>防止拖拽文本域 resize:</h3><p>实际开发中，我们文本域右下角是不可以拖拽的</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">textarea</span>&#123; <span class="attribute">resize</span>: none;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="多行文本溢出显示省略号"><a href="#多行文本溢出显示省略号" class="headerlink" title="多行文本溢出显示省略号:"></a>多行文本溢出显示省略号:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">overflow: hidden;</span><br><span class="line">text-overflow: ellipsis;</span><br><span class="line">/* 弹性伸缩盒子模型显示 */</span><br><span class="line">display: -webkit-box;</span><br><span class="line">/* 限制在一个块元素显示的文本的行数 */</span><br><span class="line">-webkit-line-clamp: 2;</span><br><span class="line">/* 设置或检索伸缩盒对象的子元素的排列方式 */</span><br><span class="line">-webkit-box-orient: vertical;</span><br></pre></td></tr></table></figure>
+
+<h3 id="常见表单类型"><a href="#常见表单类型" class="headerlink" title="常见表单类型:"></a><strong>常见表单类型:</strong></h3><p>类型很多，我们现阶段<strong>重点记忆三个</strong>： <strong><code>number</code>   <code>tel</code>   <code>search</code></strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">text password radio checkbox button file hidden submit reset image</span><br></pre></td></tr></table></figure>
+
+<p><strong>新的输入类型</strong><br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn1.tianli0.top/gh/web-xc/iMG@main/postss/%E6%96%B0%E5%A2%9E%E8%A1%A8%E5%8D%95.webp" style="zoom:33%;" /></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 我们验证的时候必须添加form表单域 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">        邮箱: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;email&quot;</span> <span class="attr">autofocus</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        网址: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;url&quot;</span> <span class="attr">required</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        日期: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;date&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        时间: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;time&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        月: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;month&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span>  </span><br><span class="line">        年的第几周: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;week&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span>             </span><br><span class="line">        数量: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span>           </span><br><span class="line">        手机号: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;tel&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        搜索框: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;search&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        你喜欢的颜色: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;color&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 当我们点击提交按钮就可以验证表单了 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;提交&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="HTML5-新增的表单属性"><a href="#HTML5-新增的表单属性" class="headerlink" title="HTML5 新增的表单属性:"></a>HTML5 新增的表单属性:</h3><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">值</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">required</td>
+<td align="left">required</td>
+<td align="left">表单拥有该属性表示其内容不能为空，必填</td>
+</tr>
+<tr>
+<td align="left">autofocus</td>
+<td align="left">autofocus</td>
+<td align="left">自动聚焦属性，页面加载完成自动聚焦到指定表单</td>
+</tr>
+<tr>
+<td align="left">autocomplete</td>
+<td align="left">off&#x2F;on</td>
+<td align="left">autocomplete&#x3D;”on”，关闭autocomplete&#x3D;”off需要放在表单内，同时加上name属性，同时成功提交</td>
+</tr>
+<tr>
+<td align="left">multiple</td>
+<td align="left">multiple</td>
+<td align="left">可以多选文件提交</td>
+</tr>
+</tbody></table>
+<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器:"></a>属性选择器:</h3><ul>
+<li><strong>注意：</strong>类选择器、属性选择器、伪类选择器，权重为 10</li>
+<li>属性选择器，按照字面意思，都是根据标签中的属性来选择元素</li>
+<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn1.tianli0.top/gh/web-xc/iMG/postss/属性选择器.png" style="zoom: 50%;" /></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 只选择 type =text 文本框的input 选取出来 */</span></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=text]</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: pink;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 选择首先是div 然后 具有class属性 并且属性值 必须是 icon开头的这些元素 */</span></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-attr">[class^=icon]</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 选择首先是section 然后 具有class属性 并且属性值 必须是 data结尾的这些元素 */</span></span><br><span class="line"><span class="selector-tag">section</span><span class="selector-attr">[class$=data]</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="其他特性"><a href="#其他特性" class="headerlink" title="其他特性:"></a>其他特性:</h3><h4 id="图标变模糊-–-CSS3滤镜filter"><a href="#图标变模糊-–-CSS3滤镜filter" class="headerlink" title="图标变模糊  – CSS3滤镜filter:"></a>图标变模糊  – CSS3滤镜filter:</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语法:filter: 函数(); --&gt; 例如：<span class="attribute">filter</span>: <span class="built_in">blur</span>(<span class="number">5px</span>); --&gt; blur模糊处理  数值越大越模糊</span><br></pre></td></tr></table></figure>
+
+<h4 id="计算盒子宽度-–-calc-函数"><a href="#计算盒子宽度-–-calc-函数" class="headerlink" title="计算盒子宽度 – calc 函数:"></a>计算盒子宽度 – calc 函数:</h4><p>calc() 此CSS函数让你在声明CSS属性值时执行一些计算, 括号里面可以使用 + - *  &#x2F; 来进行计算</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语法: width: <span class="built_in">calc</span>(<span class="number">100%</span> - <span class="number">80px</span>);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="HTML5新特性"><a href="#HTML5新特性" class="headerlink" title="HTML5新特性:"></a>HTML5新特性:</h3><ul>
+<li><p><code>&lt;header&gt;</code> 头部标签</p>
+</li>
+<li><p><code>&lt;nav&gt;</code> 导航标签</p>
+</li>
+<li><p><code>&lt;article&gt;</code> 内容标签</p>
+</li>
+<li><p><code>&lt;section&gt;</code> 定义文档某个区域</p>
+</li>
+<li><p><code>&lt;aside&gt;</code> 侧边栏标签</p>
+</li>
+<li><p><code>&lt;footer&gt;</code> 尾部标签</p>
+</li>
+<li><p>广义的 HTML5 是 HTML5 本身 + CSS3 + JavaScript </p>
+</li>
+<li><p>这个集合有时称为 HTML5 和朋友，通常缩写为 HTML5 </p>
+</li>
+<li><p>HTML5 MDN 介绍：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML">https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML</a></p>
+</li>
+</ul>
+<hr>
+<h3 id="SEO三大标签"><a href="#SEO三大标签" class="headerlink" title="SEO三大标签:"></a>SEO三大标签:</h3><ol>
+<li><p>title：网页标题标签 </p>
+</li>
+<li><p>description：网页描述标签 </p>
+</li>
+<li><p>keywords：网页关键词标签</p>
+</li>
+</ol>
+<h3 id="ico图标设置"><a href="#ico图标设置" class="headerlink" title="ico图标设置:"></a>ico图标设置:</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;shortcut icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;favicon.ico&quot;</span> <span class="attr">type</span>=<span class="string">&quot;image/icon&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="本节单词："><a href="#本节单词：" class="headerlink" title="本节单词："></a>本节单词：</h4><ol>
+<li>ico</li>
+<li>favicon</li>
+<li>uploads</li>
+<li>base</li>
+<li>common</li>
+<li>outline</li>
+<li>resize</li>
+<li>ellipsis</li>
+<li>clamp</li>
+<li>orient</li>
+<li>email</li>
+<li>month</li>
+<li>week</li>
+<li>number</li>
+<li>tel</li>
+<li>search</li>
+<li>required</li>
+<li>autofocus</li>
+<li>complete</li>
+<li>on</li>
+<li>filter</li>
+<li>blur</li>
+<li>calc</li>
+<li>article</li>
+<li>section</li>
+<li>aside</li>
+<li>description</li>
+<li>keywords</li>
+</ol>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/blog/posts/bea0.html">前端168个单词</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/blog/posts/4a24.html">前端路线</a></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.5';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/blog/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

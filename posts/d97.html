@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>CSS-2D-3D转换 - XC's Blog</title>
+
+  
+    <meta name="description" content="2D 转换 transform:转换在CSS3中可以实现元素的移动(translate)、旋转(rotate)、缩放(scale)等效果 2D 转换 移动 translate: 2D移动可以改变元素在页面中的位置，类似定位 translate的优点：不会影响其他元素位置，对行内标签没有效果  1transform: translate(x,y); 或者分开写: translateX(50px);">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS-2D-3D转换">
+<meta property="og:url" content="https://www.webxc.ml/blog/posts/d97.html">
+<meta property="og:site_name" content="XC&#39;s Blog">
+<meta property="og:description" content="2D 转换 transform:转换在CSS3中可以实现元素的移动(translate)、旋转(rotate)、缩放(scale)等效果 2D 转换 移动 translate: 2D移动可以改变元素在页面中的位置，类似定位 translate的优点：不会影响其他元素位置，对行内标签没有效果  1transform: translate(x,y); 或者分开写: translateX(50px);">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-16T15:54:00.000Z">
+<meta property="article:modified_time" content="2023-01-05T15:29:11.342Z">
+<meta property="article:author" content="XC&#39;s Blog">
+<meta property="article:tag" content="学习笔记-CSS">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/blog/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="title" href="/blog/"><div class="main" ff="title">XC's Blog</div></a></div>
+
+<nav class="menu dis-select"></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">CSS-2D-3D转换</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2D-%E8%BD%AC%E6%8D%A2-transform"><span class="toc-text">2D 转换 transform:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2D-%E8%BD%AC%E6%8D%A2-%E7%A7%BB%E5%8A%A8-translate"><span class="toc-text">2D 转换 移动 translate:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2D-%E8%BD%AC%E6%8D%A2-%E6%97%8B%E8%BD%AC-rotate"><span class="toc-text">2D 转换 旋转 rotate:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2D-%E8%BD%AC%E6%8D%A2%E4%B8%AD%E5%BF%83%E7%82%B9-transform-origin%EF%BC%9A"><span class="toc-text">2D 转换中心点 transform-origin：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2D-%E8%BD%AC%E6%8D%A2%E4%B9%8B%E7%BC%A9%E6%94%BE-scale"><span class="toc-text">2D 转换之缩放  scale:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2D-%E8%BD%AC%E6%8D%A2%E7%BB%BC%E5%90%88%E5%86%99%E6%B3%95"><span class="toc-text">2D 转换综合写法:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB-animation"><span class="toc-text">动画  animation :</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-text">动画的基本使用:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%94%A8keyframes-%E5%AE%9A%E4%B9%89%E5%8A%A8%E7%94%BB%EF%BC%88%E7%B1%BB%E4%BC%BC%E5%AE%9A%E4%B9%89%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%89"><span class="toc-text">1. 用keyframes 定义动画（类似定义类选择器）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%8A%A8%E7%94%BB%E5%BA%8F%E5%88%97"><span class="toc-text">2. 动画序列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%85%83%E7%B4%A0%E4%BD%BF%E7%94%A8%E5%8A%A8%E7%94%BB"><span class="toc-text">3. 元素使用动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%8A%A8%E7%94%BB%E7%AE%80%E5%86%99%E5%B1%9E%E6%80%A7"><span class="toc-text">4. 动画简写属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%8A%A8%E7%94%BB%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7"><span class="toc-text">5. 动画常用属性:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E9%80%9F%E5%BA%A6%E6%9B%B2%E7%BA%BF%E7%BB%86%E8%8A%82"><span class="toc-text">6. 速度曲线细节:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3D%E7%A7%BB%E5%8A%A8-translate3d"><span class="toc-text">1. 3D移动  translate3d:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%80%8F%E8%A7%86-perspective"><span class="toc-text">2. 透视 perspective:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3D%E6%97%8B%E8%BD%AC-rotate3d"><span class="toc-text">3. 3D旋转  rotate3d:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3D%E5%91%88%E7%8E%B0-transfrom-style"><span class="toc-text">4. 3D呈现  transfrom-style:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%A7%81%E6%9C%89%E5%89%8D%E7%BC%80"><span class="toc-text">浏览器私有前缀:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E8%8A%82%E5%8D%95%E8%AF%8D%EF%BC%9A"><span class="toc-text">本节单词：</span></a></li></ol></li></ol></div></div></widget>
+
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/blog/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/blog/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/blog/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-CSS/">学习笔记-CSS</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-10-16T15:54:00.000Z">2022-10-16</time></div></div>
+
+<article class='md-text content post'>
+<h1 class="article-title"><span>CSS-2D-3D转换</span></h1>
+<h3 id="2D-转换-transform"><a href="#2D-转换-transform" class="headerlink" title="2D 转换 transform:"></a>2D 转换 transform:</h3><p>转换在CSS3中可以实现元素的移动(translate)、旋转(rotate)、缩放(scale)等效果</p>
+<h3 id="2D-转换-移动-translate"><a href="#2D-转换-移动-translate" class="headerlink" title="2D 转换 移动 translate:"></a>2D 转换 移动 translate:</h3><ol>
+<li>2D移动可以改变元素在页面中的位置，类似定位</li>
+<li>translate的优点：<strong>不会影响</strong>其他元素位置，<strong>对行内标签没有效果</strong></li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">transform</span>: <span class="built_in">translate</span>(x,y); 或者分开写: <span class="built_in">translateX</span>(<span class="number">50px</span>); translateY(<span class="number">50px</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2D-转换-旋转-rotate"><a href="#2D-转换-旋转-rotate" class="headerlink" title="2D 转换 旋转 rotate:"></a>2D 转换 旋转 rotate:</h3><p>2D旋转可以让元素在2维平面内顺时针旋转或者逆时针旋转</p>
+<p>rotate单位是 deg ,角度为: 顺时针、逆时针，默认是元素中心点</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">transform</span>:<span class="built_in">rotate</span>(<span class="number">50deg</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2D-转换中心点-transform-origin："><a href="#2D-转换中心点-transform-origin：" class="headerlink" title="2D 转换中心点 transform-origin："></a>2D 转换中心点 transform-origin：</h3><ol>
+<li>x 和 y 用空格隔开，x y 默认转换的中心点是元素的中心点</li>
+<li>可以给x y 设置 像素 或者 方位名词 （top bottom left right center）</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">transform-origin</span>: left bottom;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2D-转换之缩放-scale"><a href="#2D-转换之缩放-scale" class="headerlink" title="2D 转换之缩放  scale:"></a>2D 转换之缩放  scale:</h3><p>元素可以缩放，可以放大和缩小，x和y<strong>用逗号分隔</strong><br>scale优势：可以设置转换中心点缩放，默认以中心点缩放，而且不影响其他盒子</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">transform</span>:<span class="built_in">scale</span>(x,y); 只写一个参数，第二个数和第一个数一样，相当于 scale(<span class="number">2</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2D-转换综合写法"><a href="#2D-转换综合写法" class="headerlink" title="2D 转换综合写法:"></a>2D 转换综合写法:</h3><p>顺序会影转换效果，<strong>如果有位移和其他属性</strong>的时候，要将<strong>位移放到最前</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">transform</span>: <span class="built_in">translate</span>() <span class="built_in">rotate</span>() <span class="built_in">scale</span>()</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="动画-animation"><a href="#动画-animation" class="headerlink" title="动画  animation :"></a>动画  animation :</h3><p>可通过设置多个节点来控制一个或一组动画，常用来实现复杂动画效果，相比较过渡，动画可以实现更多变化、控制、连续自动播放等效果</p>
+<h4 id="动画的基本使用"><a href="#动画的基本使用" class="headerlink" title="动画的基本使用:"></a>动画的基本使用:</h4><h3 id="1-用keyframes-定义动画（类似定义类选择器）"><a href="#1-用keyframes-定义动画（类似定义类选择器）" class="headerlink" title="1. 用keyframes 定义动画（类似定义类选择器）"></a><strong>1. 用keyframes 定义动画（类似定义类选择器）</strong></h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> 动画名称 &#123;</span><br><span class="line">              <span class="number">0%</span>  &#123;</span><br><span class="line">                   <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">                &#125;</span><br><span class="line">             <span class="number">100%</span> &#123;</span><br><span class="line">                   <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">                &#125;</span><br><span class="line">             &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-动画序列"><a href="#2-动画序列" class="headerlink" title="2. 动画序列"></a><strong>2. 动画序列</strong></h3><ol>
+<li>0% 是动画的开始，100% 是动画的完成，这样的规则就是动画序列</li>
+<li>用百分比来规定变化发生的时间，或用关键词 “from” 和 “to”，等同于 0% 和 100%</li>
+</ol>
+<h3 id="3-元素使用动画"><a href="#3-元素使用动画" class="headerlink" title="3. 元素使用动画"></a><strong>3. 元素使用动画</strong></h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 调用动画 */</span> <span class="attribute">animation-name</span>: 动画名称;</span><br><span class="line"><span class="comment">/* 持续时间 */</span> <span class="attribute">animation-duration</span>: 持续时间;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-动画简写属性"><a href="#4-动画简写属性" class="headerlink" title="4. 动画简写属性"></a><strong>4. 动画简写属性</strong></h3><ol>
+<li><p>animation：动画名称 持续时间 运动曲线 何时开始 播放次数 是否反方向 动画起始或结束状态</p>
+</li>
+<li><p>简写属性里<strong>不包含</strong> animation-play-state</p>
+</li>
+<li><p>想要动画走回来 ，而不是直接跳回来：animation-direction：alternate</p>
+</li>
+<li><p>盒子动画结束后，停在结束位置：animation-fill-mode：forwards</p>
+</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">animation</span>: move <span class="number">5s</span> linear <span class="number">2s</span> infinite alternate;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-动画常用属性"><a href="#5-动画常用属性" class="headerlink" title="5. 动画常用属性:"></a>5. 动画常用属性:</h3><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">@keyframes</td>
+<td align="left">规定动画</td>
+</tr>
+<tr>
+<td align="left">animation</td>
+<td align="left">所有动画属性的简写属性，除了animation-play-state</td>
+</tr>
+<tr>
+<td align="left">animation-name</td>
+<td align="left">规定@keyframes动画的名称（必须写）</td>
+</tr>
+<tr>
+<td align="left">animation-duration</td>
+<td align="left">规定完成一个动画所花费的秒或毫秒，默认是0（必须写）</td>
+</tr>
+<tr>
+<td align="left">animation-timing-function</td>
+<td align="left">规定速度曲线，默认是“ease”</td>
+</tr>
+<tr>
+<td align="left">animation-delay</td>
+<td align="left">规定何时开始，默认是0</td>
+</tr>
+<tr>
+<td align="left">animation-iteration-count</td>
+<td align="left">规定被播放的次数，默认是1，还有infinite</td>
+</tr>
+<tr>
+<td align="left">animation-direction</td>
+<td align="left">规定是否在下一动画逆向播放，默认是“normal“,alternate逆播放</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/css3-pr-animation-play-state.html">animation-play-state</a></td>
+<td align="left">规定运行或暂停动画。默认是”running”,还有”paused”</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/css3-pr-animation-fill-mode.html">animation-fill-mode</a></td>
+<td align="left">规定动画结束后状态，保持forwards回到起始backwards</td>
+</tr>
+</tbody></table>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 动画名称(必须) */</span></span><br><span class="line"><span class="attribute">animation-name</span>: move;</span><br><span class="line"><span class="comment">/* 动画花费时间 */</span></span><br><span class="line"><span class="attribute">animation-duration</span>: <span class="number">2s</span>;</span><br><span class="line"><span class="comment">/* 动画速度曲线 */</span></span><br><span class="line"><span class="attribute">animation-timing-function</span>: ease;</span><br><span class="line"><span class="comment">/* 动画何时开始 */</span></span><br><span class="line"><span class="attribute">animation-delay</span>: <span class="number">0.3s</span>;</span><br><span class="line"><span class="comment">/* 动画播放次数 */</span></span><br><span class="line"><span class="attribute">animation-iteration-count</span>: infinite;</span><br><span class="line"><span class="comment">/* 动画逆向播放 */</span></span><br><span class="line"><span class="attribute">animation-direction</span>: alternate;</span><br><span class="line"><span class="comment">/* 动画运行和暂停 */</span></span><br><span class="line"><span class="attribute">animation-play-state</span>: paused;</span><br><span class="line"><span class="comment">/* 动画结束后的状态 */</span></span><br><span class="line"><span class="attribute">animation-fill-mode</span>: forwards;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-速度曲线细节"><a href="#6-速度曲线细节" class="headerlink" title="6. 速度曲线细节:"></a>6. 速度曲线细节:</h3><p><strong>animation-timing-function：规定动画的速度曲线，默认是“ease”</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">值</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">linear</td>
+<td align="left">匀速，动画从头到尾的速度是相同的</td>
+</tr>
+<tr>
+<td align="left">ease</td>
+<td align="left">默认，动画以低速开始，然后加快，在结束前变慢</td>
+</tr>
+<tr>
+<td align="left">ease-in</td>
+<td align="left">动画以低速开始</td>
+</tr>
+<tr>
+<td align="left">ease-out</td>
+<td align="left">动画以低速结束</td>
+</tr>
+<tr>
+<td align="left">ease-in-out</td>
+<td align="left">动画以低速开始和结束</td>
+</tr>
+<tr>
+<td align="left">steps()</td>
+<td align="left">指定了时间函数中的间隔数量（步长，要走多少步）</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="1-3D移动-translate3d"><a href="#1-3D移动-translate3d" class="headerlink" title="1. 3D移动  translate3d:"></a>1. 3D移动  translate3d:</h3><p>3D移动在2D移动基础上多加了个可以移动的方向，就是<strong>Z轴方向</strong></p>
+<p>因为Z轴是垂直屏幕，由里指向外，所以默认是看不到元素在轴的方向上移动</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">translform: <span class="built_in">translateX</span>(<span class="number">10px</span>)：在x轴上移动</span><br><span class="line">translform: <span class="built_in">translateY</span>(<span class="number">10px</span>)：在Y轴上移动</span><br><span class="line">translform: <span class="built_in">translateZ</span>(<span class="number">10px</span>)：在Z轴上移动（注意：translateZ一般用px单位）</span><br><span class="line">translform: <span class="built_in">translate3d</span>(x,y,z)：x、y、z 分别指要移动的轴的方向的距离</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-透视-perspective"><a href="#2-透视-perspective" class="headerlink" title="2. 透视 perspective:"></a>2. 透视 perspective:</h3><ol>
+<li>如果想要在网页写3D效果需要透视（理解成3D物体投影在2D平面内）</li>
+<li>透视的单位是像素，<strong>近大远小,往外是正值,往里是负值</strong></li>
+<li>透视写在被观察元素的<strong>父盒子</strong>上面</li>
+</ol>
+<h3 id="3-3D旋转-rotate3d"><a href="#3-3D旋转-rotate3d" class="headerlink" title="3. 3D旋转  rotate3d:"></a>3. 3D旋转  rotate3d:</h3><ol>
+<li><p>transform: rotateX(45deg)：沿X轴正方向旋转 45度 </p>
+</li>
+<li><p>transform: rotateY(45deg) ：沿Y轴正方向旋转 45deg </p>
+</li>
+<li><p>transform: rotateZ(45deg) ：沿Z轴正方向旋转 45deg </p>
+</li>
+<li><p>transform: rotate3d(x,y,z,deg)：沿自定义轴旋转 deg为角度（了解即可)</p>
+</li>
+<li><p>xyz表示旋转轴的矢量，是标示你是否希望沿着该轴旋转，最后一个标示旋转的角度</p>
+</li>
+</ol>
+<h3 id="4-3D呈现-transfrom-style"><a href="#4-3D呈现-transfrom-style" class="headerlink" title="4. 3D呈现  transfrom-style:"></a>4. 3D呈现  transfrom-style:</h3><ol>
+<li><p>transform-style: flat 子元素不开启3d立体空间 默认的 </p>
+</li>
+<li><p>transform-style: preserve-3d; 子元素开启立体空间 </p>
+</li>
+<li><p>控制子元素是否开启三维立体环境</p>
+</li>
+<li><p>代码写给父级，但是影响的是子盒子，<strong>这个属性很重要，后面必用</strong></p>
+</li>
+</ol>
+<hr>
+<h3 id="浏览器私有前缀"><a href="#浏览器私有前缀" class="headerlink" title="浏览器私有前缀:"></a>浏览器私有前缀:</h3><p>浏览器私有前缀是为了兼容老版本写法，比较新版本的浏览器无须添加</p>
+<ol>
+<li><p>-moz-：代表 firefox 浏览器私有属性</p>
+</li>
+<li><p>-ms-：代表 ie 浏览器私有属性 </p>
+</li>
+<li><p>-webkit-：代表 safari、chrome 私有属性 </p>
+</li>
+<li><p>-o-：代表 Opera 私有属性</p>
+</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-moz-<span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">-webkit-<span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">-o-<span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="本节单词："><a href="#本节单词：" class="headerlink" title="本节单词："></a>本节单词：</h4><ol>
+<li>rotate</li>
+<li>origin</li>
+<li>scale</li>
+<li>animation</li>
+<li>keyframes</li>
+<li>duration</li>
+<li>timing-function-ease-linear-out-steps</li>
+<li>delay</li>
+<li>iteration-count-infinite</li>
+<li>direction-alternate</li>
+<li>play-state-paused-running</li>
+<li>fill-mode-forwards</li>
+<li>perspective</li>
+<li>deg</li>
+<li>flat</li>
+<li>webkit</li>
+</ol>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/blog/posts/f4e7.html">3D转换-转后不显示问题</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/blog/posts/bea0.html">前端168个单词</a></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.5';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/blog/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

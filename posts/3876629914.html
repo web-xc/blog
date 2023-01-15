@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>HTML第一天 - XC's Blog</title>
+
+  
+    <meta name="description" content="HTML第一天Web标准： 结构HTML 样式CSS 行为JavaScript   注释： 快捷键ctrl+&#x2F;   为代码添加的具有解释性、描述性的信息，主要用来帮助开发人员理解代码   标签的分类： 双标签：例如：p h strong   单标签：例如：img br hr    标签的关系： 1、嵌套关系（父子）      2、并列关系（兄弟）      1、标题标签 h1~h6 独占">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML第一天">
+<meta property="og:url" content="https://www.webxc.ml/blog/posts/3876629914.html">
+<meta property="og:site_name" content="XC&#39;s Blog">
+<meta property="og:description" content="HTML第一天Web标准： 结构HTML 样式CSS 行为JavaScript   注释： 快捷键ctrl+&#x2F;   为代码添加的具有解释性、描述性的信息，主要用来帮助开发人员理解代码   标签的分类： 双标签：例如：p h strong   单标签：例如：img br hr    标签的关系： 1、嵌套关系（父子）      2、并列关系（兄弟）      1、标题标签 h1~h6 独占">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://npm.elemecdn.com/webxc@1.0.0/html/html1.jpg">
+<meta property="article:published_time" content="2022-01-15T10:00:00.000Z">
+<meta property="article:modified_time" content="2022-09-11T15:03:01.710Z">
+<meta property="article:author" content="XC&#39;s Blog">
+<meta property="article:tag" content="学习笔记-HTML">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://npm.elemecdn.com/webxc@1.0.0/html/html1.jpg">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/blog/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="title" href="/blog/"><div class="main" ff="title">XC's Blog</div></a></div>
+
+<nav class="menu dis-select"></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">HTML第一天</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Web%E6%A0%87%E5%87%86%EF%BC%9A"><span class="toc-text">Web标准：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A%EF%BC%9A"><span class="toc-text">注释：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE%E7%9A%84%E5%88%86%E7%B1%BB%EF%BC%9A"><span class="toc-text">标签的分类：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE%E7%9A%84%E5%85%B3%E7%B3%BB%EF%BC%9A"><span class="toc-text">标签的关系：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E6%A0%87%E9%A2%98%E6%A0%87%E7%AD%BE"><span class="toc-text">1、标题标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E6%AE%B5%E8%90%BD%E6%A0%87%E7%AD%BE"><span class="toc-text">2、段落标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E6%8D%A2%E8%A1%8C%E6%A0%87%E7%AD%BE"><span class="toc-text">3、换行标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E6%B0%B4%E5%B9%B3%E7%BA%BF%E6%A0%87%E7%AD%BE"><span class="toc-text">4、水平线标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%A0%87%E7%AD%BE"><span class="toc-text">文本格式化标签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#img%E5%9B%BE%E7%89%87%E6%A0%87%E7%AD%BE%EF%BC%9A"><span class="toc-text">img图片标签：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E5%BE%84%EF%BC%9A"><span class="toc-text">路径：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%80%90%E5%B8%B8%E7%94%A8%E3%80%91%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84-%EF%BC%88%E4%BB%8E%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E5%BC%80%E5%A7%8B%E5%87%BA%E5%8F%91%E6%89%BE%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6%E7%9A%84%E8%BF%87%E7%A8%8B%EF%BC%89-gt-x2F-%E5%90%8C%E4%B8%80%E7%BA%A7%E8%B7%AF%E5%BE%84-gt-x2F-%E4%B8%8B%E4%B8%80%E7%BA%A7%E8%B7%AF%E5%BE%84-gt-x2F-%E4%B8%8A%E4%B8%80%E7%BA%A7%E8%B7%AF%E5%BE%84"><span class="toc-text">【常用】相对路径 （从当前文件开始出发找目标文件的过程）  &gt; .&#x2F; 同一级路径  &gt; .&#x2F; 下一级路径  &gt; ..&#x2F;  上一级路径
+  </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#audio%E9%9F%B3%E9%A2%91%E6%A0%87%E7%AD%BE%EF%BC%9A"><span class="toc-text">audio音频标签：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#video%E8%A7%86%E9%A2%91%E6%A0%87%E7%AD%BE%EF%BC%9A"><span class="toc-text">video视频标签：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#a%E9%93%BE%E6%8E%A5%E6%A0%87%E7%AD%BE%EF%BC%9A"><span class="toc-text">a链接标签：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E6%96%B0%E7%AA%97%E5%8F%A3%E6%89%93%E5%BC%80"><span class="toc-text">在新窗口打开</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8head%E9%87%8C%E6%B7%BB%E5%8A%A0base-%E6%A0%87%E7%AD%BE-%E5%8F%AF%E4%BB%A5%E8%AE%BE%E7%BD%AE%E6%89%80%E6%9C%89%E9%93%BE%E6%8E%A5%E7%9A%84%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F"><span class="toc-text">在head里添加base 标签  可以设置所有链接的打开方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E8%8A%82%E5%8D%95%E8%AF%8D%E6%9C%89%EF%BC%9A"><span class="toc-text">本节单词有：</span></a></div></div></widget>
+
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/blog/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/blog/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/blog/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-HTML/">学习笔记-HTML</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-01-15T10:00:00.000Z">2022-01-15</time></div></div>
+
+<article class='md-text content post'>
+<h1 class="article-title"><span>HTML第一天</span></h1>
+<h1 id="HTML第一天"><a href="#HTML第一天" class="headerlink" title="HTML第一天"></a>HTML第一天</h1><h3 id="Web标准："><a href="#Web标准：" class="headerlink" title="Web标准："></a>Web标准：</h3><ol>
+<li>结构HTML</li>
+<li>样式CSS</li>
+<li>行为JavaScript</li>
+</ol>
+<hr>
+<h3 id="注释："><a href="#注释：" class="headerlink" title="注释："></a>注释：</h3><ul>
+<li>快捷键ctrl+&#x2F;</li>
+</ul>
+<blockquote>
+<p>为代码添加的具有解释性、描述性的信息，主要用来帮助开发人员理解代码</p>
+</blockquote>
+<hr>
+<h3 id="标签的分类："><a href="#标签的分类：" class="headerlink" title="标签的分类："></a>标签的分类：</h3><blockquote>
+<p>双标签：例如：p h strong</p>
+</blockquote>
+<blockquote>
+<p>单标签：例如：img br hr </p>
+</blockquote>
+<hr>
+<h3 id="标签的关系："><a href="#标签的关系：" class="headerlink" title="标签的关系："></a>标签的关系：</h3><blockquote>
+<p>1、嵌套关系（父子）</p>
+</blockquote>
+<ul>
+<li><div><p></p></div></li>
+</ul>
+<blockquote>
+<p>2、并列关系（兄弟）</p>
+</blockquote>
+<ul>
+<li><strong><del></del></strong></li>
+</ul>
+<hr>
+<h3 id="1、标题标签"><a href="#1、标题标签" class="headerlink" title="1、标题标签"></a>1、标题标签</h3><ul>
+<li>h1~h6</li>
+<li>独占一行，并且从h1~h6文字逐渐减小</li>
+</ul>
+<h3 id="2、段落标签"><a href="#2、段落标签" class="headerlink" title="2、段落标签"></a>2、段落标签</h3><ul>
+<li>p （独占一行，段落之间存在间隙）</li>
+</ul>
+<h3 id="3、换行标签"><a href="#3、换行标签" class="headerlink" title="3、换行标签"></a>3、换行标签</h3><ul>
+<li>br （单标签，让文字强制换行）</li>
+</ul>
+<h3 id="4、水平线标签"><a href="#4、水平线标签" class="headerlink" title="4、水平线标签"></a>4、水平线标签</h3><ul>
+<li>hr</li>
+</ul>
+<hr>
+<h3 id="文本格式化标签"><a href="#文本格式化标签" class="headerlink" title="文本格式化标签"></a>文本格式化标签</h3><ol>
+<li>加粗：strong b</li>
+<li>下划线：ins u</li>
+<li>倾斜：em i  经常用来做一些小图标</li>
+<li>删除线：del s</li>
+</ol>
+<blockquote>
+<p>推荐前者写法，有利于机器解析（对搜索引擎SEO）有帮助（强调语义更强烈）</p>
+</blockquote>
+<hr>
+<h4 id="img图片标签："><a href="#img图片标签：" class="headerlink" title="img图片标签："></a>img图片标签：</h4><ul>
+<li>src图片路径</li>
+<li>alt图片加载不出来时，替换的文本</li>
+<li>title 当鼠标悬停时，显示的文本</li>
+<li>width 宽度</li>
+<li>height 高度</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;路径&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;加载不出来&quot;</span> <span class="attr">title</span>=<span class="string">&quot;这是一张图片&quot;</span> <span class="attr">width</span>=<span class="string">&quot;1&quot;</span> <span class="attr">height</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<hr>
+<h3 id="路径："><a href="#路径：" class="headerlink" title="路径："></a>路径：</h3><ul>
+<li>绝对路径（盘符路径或者网络地址）</li>
+<li><h2 id="【常用】相对路径-（从当前文件开始出发找目标文件的过程）-gt-x2F-同一级路径-gt-x2F-下一级路径-gt-x2F-上一级路径"><a href="#【常用】相对路径-（从当前文件开始出发找目标文件的过程）-gt-x2F-同一级路径-gt-x2F-下一级路径-gt-x2F-上一级路径" class="headerlink" title="【常用】相对路径 （从当前文件开始出发找目标文件的过程）  &gt; .&#x2F; 同一级路径  &gt; .&#x2F; 下一级路径  &gt; ..&#x2F;  上一级路径
+  "></a>【常用】相对路径 （从当前文件开始出发找目标文件的过程）<br>  &gt; .&#x2F; 同一级路径<br><br>  &gt; .&#x2F; 下一级路径<br><br>  &gt; ..&#x2F;  上一级路径
+  </h2></li>
+</ul>
+<h3 id="audio音频标签："><a href="#audio音频标签：" class="headerlink" title="audio音频标签："></a>audio音频标签：</h3><blockquote>
+<p>音频目前支持三种格式：MP3、Wav、Ogg</p>
+</blockquote>
+<ul>
+<li><p>src：音频路径</p>
+</li>
+<li><p>controls：音频控件</p>
+</li>
+<li><p>autoplay：自动播放 谷歌里用不了  </p>
+</li>
+<li><p>loop：循环播放</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">src</span>=<span class="string">&quot;路径&quot;</span> <span class="attr">controls</span> <span class="attr">autoplay</span> <span class="attr">loop</span>&gt;</span><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<ol>
+<li>为了照顾兼容性  可以这样写 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;music.ogg&quot;</span> <span class="attr">type</span>=<span class="string">&quot;audio/ogg&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;music.mp3&quot;</span> <span class="attr">type</span>=<span class="string">&quot;audio/mpeg&quot;</span>&gt;</span></span><br><span class="line"> （您的浏览器不支持，赶紧换一个吧!）</span><br><span class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span> </span><br><span class="line">***可以适应不同浏览器用 source 然后把格式都写一遍（MP3、Wav、Ogg）***</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h3 id="video视频标签："><a href="#video视频标签：" class="headerlink" title="video视频标签："></a>video视频标签：</h3><blockquote>
+<p>视频标签目前支持三种格式：MP4 、WebM 、Ogg</p>
+</blockquote>
+<ul>
+<li><p>src：视频路径</p>
+</li>
+<li><p>controls：视频控件</p>
+</li>
+<li><p>autoplay：自动播放</p>
+</li>
+<li><p>谷歌浏览器配合muted属性实现自动静音播放</p>
+</li>
+<li><p>loop：循环播放</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">&quot;video.mp4&quot;</span> <span class="attr">controls</span> <span class="attr">autoplay</span> <span class="attr">loop</span> <span class="attr">width</span>=<span class="string">&quot;1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h2 id="a链接标签："><a href="#a链接标签：" class="headerlink" title="a链接标签："></a>a链接标签：</h2><p>点击之后，从一个页面跳转到另一个页面（a标签、超链接、锚链接）</p>
+<ul>
+<li>1、外部链接：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.baidu.com/&quot;</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>2、内部链接</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;路径&quot;</span>&gt;</span>内部链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>3、空链接</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>会回到页面顶部<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>4、死链接</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;JavaScript:;&quot;</span>&gt;</span>点击以后不会回到页面顶部<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>5、图片链接</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;地址&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;路径&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>6、下载链接</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;xx.exe&quot;</span>&gt;</span>下载xx<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h3 id="在新窗口打开"><a href="#在新窗口打开" class="headerlink" title="在新窗口打开"></a>在新窗口打开</h3><ul>
+<li>_self：在当前窗口中跳转（默认值）</li>
+<li>_blank：在新窗口中跳转</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>新窗口打开<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="在head里添加base-标签-可以设置所有链接的打开方式"><a href="#在head里添加base-标签-可以设置所有链接的打开方式" class="headerlink" title="在head里添加base 标签  可以设置所有链接的打开方式"></a>在head里添加base 标签  可以设置所有链接的打开方式</h3><hr>
+<h2 id="本节单词有："><a href="#本节单词有：" class="headerlink" title="本节单词有："></a>本节单词有：</h2><ol>
+<li>meta charset</li>
+<li>title</li>
+<li>head</li>
+<li>body</li>
+<li>strong</li>
+<li>image</li>
+<li>alt</li>
+<li>width</li>
+<li>height</li>
+<li>audio</li>
+<li>controls</li>
+<li>autoplay</li>
+<li>loop</li>
+<li>source</li>
+<li>video</li>
+<li>muted</li>
+<li>href</li>
+<li>target</li>
+<li>blank</li>
+<li>self</li>
+</ol>
+<hr>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/webxc@1.0.0/html/html1.jpg"></p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/blog/posts/3607511362.html">HTML第二天</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/blog/posts/2847555892.html">JavaScript基础</a></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.5';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/blog/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

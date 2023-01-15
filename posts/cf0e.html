@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>移动开发-流式布局 - XC's Blog</title>
+
+  
+    <meta name="description" content="移动开发-百分比布局 流失布局案例: 京东商城: 点击查看 通过盒子宽度设置百分比来根据屏幕宽度来进行伸缩，不受固定像素限制，内容向两侧填充 流式布局，就是百分比布局，也称非固定像素布局 max-width 最大宽度 – max-height 最大高度 min-width 最小宽度 – min-height 最小高度      CSS初始化 normalize.css: 移动端CSS初始化推荐使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动开发-流式布局">
+<meta property="og:url" content="https://www.webxc.ml/blog/posts/cf0e.html">
+<meta property="og:site_name" content="XC&#39;s Blog">
+<meta property="og:description" content="移动开发-百分比布局 流失布局案例: 京东商城: 点击查看 通过盒子宽度设置百分比来根据屏幕宽度来进行伸缩，不受固定像素限制，内容向两侧填充 流式布局，就是百分比布局，也称非固定像素布局 max-width 最大宽度 – max-height 最大高度 min-width 最小宽度 – min-height 最小高度      CSS初始化 normalize.css: 移动端CSS初始化推荐使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn1.tianli0.top/gh/web-xc/iMG/postss/csslsbj.jpg">
+<meta property="og:image" content="https://ask.qcloudimg.com/raw/yehe-b343db5317ff8/mfqvqqs7dp.png?imageView2/2/w/1620">
+<meta property="og:image" content="https://cdn1.tianli0.top/gh/web-xc/iMG/postss/cssqt.jpg">
+<meta property="og:image" content="https://cdn1.tianli0.top/gh/web-xc/iMG/postss/cssnh.jpg">
+<meta property="article:published_time" content="2022-10-28T06:30:00.000Z">
+<meta property="article:modified_time" content="2023-01-07T17:50:18.045Z">
+<meta property="article:author" content="XC&#39;s Blog">
+<meta property="article:tag" content="移动开发">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn1.tianli0.top/gh/web-xc/iMG/postss/csslsbj.jpg">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/blog/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="title" href="/blog/"><div class="main" ff="title">XC's Blog</div></a></div>
+
+<nav class="menu dis-select"></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">移动开发-流式布局</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91-%E7%99%BE%E5%88%86%E6%AF%94%E5%B8%83%E5%B1%80"><span class="toc-text">移动开发-百分比布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS%E5%88%9D%E5%A7%8B%E5%8C%96-normalize-css"><span class="toc-text">CSS初始化 normalize.css:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#meta%E8%A7%86%E5%8F%A3%E6%A0%87%E7%AD%BE"><span class="toc-text">meta视口标签:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%83%E5%B1%80%E8%A7%86%E5%8F%A3-layout-viewport"><span class="toc-text">布局视口 layout viewport:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E8%A7%89%E8%A7%86%E5%8F%A3-visual-viewport"><span class="toc-text">视觉视口 visual viewport:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E6%83%B3%E8%A7%86%E5%8F%A3-ideal-viewport"><span class="toc-text">理想视口 ideal viewport:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%80%8D%E5%9B%BE"><span class="toc-text">二倍图:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%80%8D%E5%9B%BE"><span class="toc-text">多倍图:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E5%80%8D%E5%9B%BE%E5%88%87%E5%9B%BE-cutterman"><span class="toc-text">多倍图切图 cutterman:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B8%BB%E6%B5%81%E6%96%B9%E6%A1%88"><span class="toc-text">移动端主流方案:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="toc-text">移动端浏览器:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E6%A0%B7%E5%BC%8F"><span class="toc-text">特殊样式:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E8%8A%82%E5%8D%95%E8%AF%8D%EF%BC%9A"><span class="toc-text">本节单词：</span></a></li></ol></li></ol></div></div></widget>
+
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/blog/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/blog/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/blog/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-10-28T06:30:00.000Z">2022-10-28</time></div></div>
+
+<article class='md-text content post'>
+<h1 class="article-title"><span>移动开发-流式布局</span></h1>
+<h3 id="移动开发-百分比布局"><a href="#移动开发-百分比布局" class="headerlink" title="移动开发-百分比布局"></a>移动开发-百分比布局</h3><ol>
+<li>流失布局案例: 京东商城: <a href="https://www.webxc.ml/4/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%BA%AC%E4%B8%9C%E5%95%86%E5%9F%8E/index.html">点击查看</a></li>
+<li>通过盒子宽度设置百分比来根据屏幕宽度来进行伸缩，不受固定像素限制，内容向两侧填充</li>
+<li>流式布局，就是百分比布局，也称<strong>非固定像素布局</strong></li>
+<li>max-width 最大宽度 – max-height 最大高度</li>
+<li>min-width 最小宽度 – min-height 最小高度</li>
+</ol>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn1.tianli0.top/gh/web-xc/iMG/postss/csslsbj.jpg" style="zoom: 33%;" />
+
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://ask.qcloudimg.com/raw/yehe-b343db5317ff8/mfqvqqs7dp.png?imageView2/2/w/1620" style="zoom:33%;" />
+
+<h3 id="CSS初始化-normalize-css"><a href="#CSS初始化-normalize-css" class="headerlink" title="CSS初始化 normalize.css:"></a>CSS初始化 normalize.css:</h3><ol>
+<li><p>移动端CSS初始化推荐使用normalize.css</p>
+</li>
+<li><p>Normalize.css：保护了有价值的默认值、修复了浏览器的bug、是模块化的 、拥有详细的文档</p>
+</li>
+<li><p>Normalize.css官网地址： <a target="_blank" rel="noopener" href="http://necolas.github.io/normalize.css/">http://necolas.github.io/normalize.css/</a></p>
+</li>
+</ol>
+<h3 id="meta视口标签"><a href="#meta视口标签" class="headerlink" title="meta视口标签:"></a>meta视口标签:</h3><p>标准的 viewport 设置:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">width</td>
+<td align="left">宽度设置的是viewport宽度，可以设置device-width特殊值</td>
+</tr>
+<tr>
+<td align="left">initial-scale</td>
+<td align="left">初始缩放比，大于0的数字</td>
+</tr>
+<tr>
+<td align="left">maximum-scale</td>
+<td align="left">最大缩放比，大于0的数字</td>
+</tr>
+<tr>
+<td align="left">minimum-scale</td>
+<td align="left">最小缩放比，大于0的数字</td>
+</tr>
+<tr>
+<td align="left">user-scalable</td>
+<td align="left">用户是否可以缩放，yes或no (1或0)</td>
+</tr>
+</tbody></table>
+<h3 id="布局视口-layout-viewport"><a href="#布局视口-layout-viewport" class="headerlink" title="布局视口 layout viewport:"></a>布局视口 layout viewport:</h3><p>视口是浏览器显示页面内容的屏幕区域, 视口可以分为布局视口、视觉视口和理想视口</p>
+<h3 id="视觉视口-visual-viewport"><a href="#视觉视口-visual-viewport" class="headerlink" title="视觉视口 visual viewport:"></a>视觉视口 visual viewport:</h3><p>它是用户正在看到的网站的区域，可通过缩放去操作视觉视口</p>
+<h3 id="理想视口-ideal-viewport"><a href="#理想视口-ideal-viewport" class="headerlink" title="理想视口 ideal viewport:"></a>理想视口 ideal viewport:</h3><ol>
+<li><p>理想视口，对设备来讲，是最理想的视口尺寸，需要手动添写meta视口标签通知浏览器操作</p>
+</li>
+<li><p>meta视口标签目的：布局视口的宽度应该与理想视口的宽度一致，就是设备有多宽，布局视口就多宽</p>
+</li>
+</ol>
+<h3 id="二倍图"><a href="#二倍图" class="headerlink" title="二倍图:"></a>二倍图:</h3><p>一个px能显示的物理像素点的个数，称为物理像素比或屏幕像素比，1CSS像素&#x3D;1物理像素</p>
+<h3 id="多倍图"><a href="#多倍图" class="headerlink" title="多倍图:"></a>多倍图:</h3><ol>
+<li><p>在标准viewport设置中，使用倍图来提高图片质量，解决在高清设备中的模糊问题</p>
+</li>
+<li><p>通常使用二倍图， 因为iPhone6\7\8影响，还存在3倍4倍图的情况，这个看实际开发需求</p>
+</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-size</span>: <span class="number">50px</span> <span class="number">50px</span>; <span class="comment">/*原始图片100*100px*/</span></span><br></pre></td></tr></table></figure>
+
+<p>关于更多: <a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/css3-pr-background-size.html">background-size 属性</a></p>
+<h4 id="多倍图切图-cutterman"><a href="#多倍图切图-cutterman" class="headerlink" title="多倍图切图 cutterman:"></a>多倍图切图 cutterman:</h4><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn1.tianli0.top/gh/web-xc/iMG/postss/cssqt.jpg" style="zoom: 33%;" />
+
+<h4 id="移动端主流方案"><a href="#移动端主流方案" class="headerlink" title="移动端主流方案:"></a>移动端主流方案:</h4><ol>
+<li>单独制作移动端页面 (主流)，通过判断设备，如果是移动设备打开，则跳到移动端页面</li>
+<li>响应式兼容移动端 (其次)，通过判断屏幕宽度来改变样式，以适应不同终端, 制作麻烦，需要花很大精力去调兼容性问题</li>
+</ol>
+<h4 id="移动端浏览器"><a href="#移动端浏览器" class="headerlink" title="移动端浏览器:"></a>移动端浏览器:</h4><ol>
+<li><p>移动端浏览器基本以**<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/webkit/1467841">webkit 内核</a>**为主，因此我们就考虑webkit兼容性问题</p>
+</li>
+<li><p>同时我们浏览器的私有前缀我们<strong>只需要考虑添加 webkit 即可</strong></p>
+</li>
+</ol>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn1.tianli0.top/gh/web-xc/iMG/postss/cssnh.jpg" style="zoom: 50%;" />
+
+<h4 id="特殊样式"><a href="#特殊样式" class="headerlink" title="特殊样式:"></a>特殊样式:</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*CSS3盒子模型*/</span></span><br><span class="line"><span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">-webkit-<span class="attribute">box-sizing</span>: border-box;</span><br><span class="line"><span class="comment">/*点击高亮我们需要清除 设置为transparent 完成透明*/</span></span><br><span class="line">-webkit-tap-highlight-<span class="attribute">color</span>: transparent;</span><br><span class="line"><span class="comment">/*在移动端浏览器默认的外观在iOS上加上这个属性才能给按钮和输入框自定义样式*/</span></span><br><span class="line">-webkit-appearance: none;</span><br><span class="line"><span class="comment">/*禁用长按页面时的弹出菜单*/</span></span><br><span class="line"><span class="selector-tag">img</span>,<span class="selector-tag">a</span> &#123; -webkit-touch-callout: none; &#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="本节单词："><a href="#本节单词：" class="headerlink" title="本节单词："></a>本节单词：</h4><ol>
+<li>max</li>
+<li>min</li>
+<li>viewport </li>
+<li>initial-scale</li>
+<li>maximum-scale</li>
+<li>minimum-scale</li>
+<li>user-scalable</li>
+<li>layout-viewport</li>
+<li>visual-viewport</li>
+<li>ideal-viewport</li>
+<li>webkit</li>
+<li>-webkit-tap-highlight-color: transparent</li>
+<li>-webkit-appearance:</li>
+<li>-webkit-touch-callout</li>
+</ol>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/blog/posts/2db5.html">移动开发-Flex布局</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/blog/posts/f4e7.html">3D转换-转后不显示问题</a></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.5';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/blog/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

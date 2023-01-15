@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>HTML基础 - XC's Blog</title>
+
+  
+    <meta name="description" content="字符集12345678MARKDOWNutf-8是目前最常用的字符集编码方式，常用的字符集编码方式还有gbk和gb2312；gb2312简单中文，包括6763个汉字；BIG5繁体中文，港澳台等用；GBK包含全部中文字符，是GB2312的扩展，加入对繁体字的支持，兼容GB2312；UTF-8则包含全世界所有国家需要用到的字符；记住一点：以后我们统统使用UTF-8字符集，这样就避免出现字符集不统一而引">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML基础">
+<meta property="og:url" content="https://www.webxc.ml/blog/posts/3782454218.html">
+<meta property="og:site_name" content="XC&#39;s Blog">
+<meta property="og:description" content="字符集12345678MARKDOWNutf-8是目前最常用的字符集编码方式，常用的字符集编码方式还有gbk和gb2312；gb2312简单中文，包括6763个汉字；BIG5繁体中文，港澳台等用；GBK包含全部中文字符，是GB2312的扩展，加入对繁体字的支持，兼容GB2312；UTF-8则包含全世界所有国家需要用到的字符；记住一点：以后我们统统使用UTF-8字符集，这样就避免出现字符集不统一而引">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-01T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-09-01T16:22:52.503Z">
+<meta property="article:author" content="XC&#39;s Blog">
+<meta property="article:tag" content="前端经验">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/blog/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="title" href="/blog/"><div class="main" ff="title">XC's Blog</div></a></div>
+
+<nav class="menu dis-select"></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">HTML基础</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E9%9B%86"><span class="toc-text">字符集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E9%A2%98%E6%A0%87%E7%AD%BE"><span class="toc-text">标题标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AE%B5%E8%90%BD%E6%A0%87%E7%AD%BE"><span class="toc-text">段落标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B0%B4%E5%B9%B3%E7%BA%BF%E6%A0%87%E7%AD%BE"><span class="toc-text">水平线标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8D%A2%E8%A1%8C%E6%A0%87%E7%AD%BE"><span class="toc-text">换行标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#div-span%E6%A0%87%E7%AD%BE"><span class="toc-text">div span标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%A0%87%E7%AD%BE"><span class="toc-text">文本格式化标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E6%A0%87%E7%AD%BE"><span class="toc-text">图像标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%8B%E5%86%8C%E6%96%87%E6%A1%A3"><span class="toc-text">手册文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#meta"><span class="toc-text">meta</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#link%E6%A0%87%E7%AD%BE"><span class="toc-text">link标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#h5%E9%93%BE%E6%8E%A5%E5%94%A4%E8%B5%B7App"><span class="toc-text">h5链接唤起App</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E5%8A%9F%E8%83%BD"><span class="toc-text">缓存功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5%E4%B8%ADaudio%E4%B8%8Evideo%EF%BC%9A"><span class="toc-text">HTML5中audio与video：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9F%B3%E9%A2%91"><span class="toc-text">音频</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9F%B3%E4%B9%90%E5%B1%9E%E6%80%A7"><span class="toc-text">音乐属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%86%E9%A2%91"><span class="toc-text">视频</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E5%B1%9E%E6%80%A7"><span class="toc-text">视频属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9F%B3%E8%A7%86%E9%A2%91%E4%BA%8B%E4%BB%B6"><span class="toc-text">音视频事件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9F%B3%E8%A7%86%E9%A2%91%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7"><span class="toc-text">音视频对象属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9F%B3%E8%A7%86%E9%A2%91%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="toc-text">音视频对象方法</span></a></li></ol></li></ol></div></div></widget>
+
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/blog/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/blog/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/blog/categories/%E5%89%8D%E7%AB%AF%E7%BB%8F%E9%AA%8C/">前端经验</a></div><div id="post-meta">发布于&nbsp;<time datetime="2021-12-01T00:00:00.000Z">2021-12-01</time></div></div>
+
+<article class='md-text content post'>
+<h1 class="article-title"><span>HTML基础</span></h1>
+<h3 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MARKDOWN</span><br><span class="line">utf-8是目前最常用的字符集编码方式，常用的字符集编码方式还有gbk和gb2312；</span><br><span class="line">gb2312简单中文，包括6763个汉字；</span><br><span class="line">BIG5繁体中文，港澳台等用；</span><br><span class="line">GBK包含全部中文字符，是GB2312的扩展，加入对繁体字的支持，兼容GB2312；</span><br><span class="line">UTF-8则包含全世界所有国家需要用到的字符；</span><br><span class="line"></span><br><span class="line">记住一点：以后我们统统使用UTF-8字符集，这样就避免出现字符集不统一而引起乱码的情况了。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="标题标签"><a href="#标题标签" class="headerlink" title="标题标签"></a>标题标签</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">单词缩写：head 头部、标题</span><br><span class="line">为了使网页更具有语义化，我们经常会在页面中用到标题标签，HTML提供了6个等级的标题，即：</span><br><span class="line">h1 h2 h3 h4 h5 h6</span><br><span class="line">标题标签语义：作为标题使用，并且依据重要性递减!</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">### 注意：h1标签因为重要，尽量少用，一般h1都是给logo使用。</span><br></pre></td></tr></table></figure>
+
+<h3 id="段落标签"><a href="#段落标签" class="headerlink" title="段落标签"></a>段落标签</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">MARKDOWN</span><br><span class="line">单词缩写：paragraph 段落</span><br><span class="line">在网页中要把文字有条理的显示出来，离不来段落标签，就如同写文章需要首行缩进、需要分段一样，整个网页也可以分为若干个段落。</span><br><span class="line">段落标签：</span><br><span class="line">&lt;p&gt;文本内容&lt;/p&gt;</span><br><span class="line">是HTML文档中最常见的标签，默认情况下，文本在一个段落中会根据浏览器窗口的大小自动换行。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="水平线标签"><a href="#水平线标签" class="headerlink" title="水平线标签"></a>水平线标签</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PLAINTEXT</span><br><span class="line">单词缩写：horizontal横线</span><br><span class="line">在网页中常常看到一些水平线讲段落与段落之间隔开，使得文档结构清晰，层次分明。这些水平线可以通过插入图片实现，也可以简单的通过标记来完成，其基本语法格式如下：</span><br><span class="line">hello!&lt;hr&gt;张三</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="换行标签"><a href="#换行标签" class="headerlink" title="换行标签"></a>换行标签</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PLAINTEXT</span><br><span class="line">在HTML中一个段落的文字会从左到右依次排列，直到浏览器窗口的右端，然后自行换行。如果希望某段文本强制换行显示，就需要使用换行标签。</span><br><span class="line">&lt;br&gt;</span><br><span class="line">这时如果还像在word中直接敲回车键换行就不起作用了。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="div-span标签"><a href="#div-span标签" class="headerlink" title="div span标签"></a>div span标签</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PLAINTEXT</span><br><span class="line">div span是没有语义的，是我们网页布局主要的两个盒子；</span><br><span class="line">div就是分割、分区的意思，其实有很多div来组合网页；</span><br><span class="line">span跨度、跨距、范围。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="文本格式化标签"><a href="#文本格式化标签" class="headerlink" title="文本格式化标签"></a>文本格式化标签</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PLAINTEXT</span><br><span class="line">在网页中有时需要为文字设置粗体、斜体或者下划线效果，这时候就需要用到HTML中的文本格式化标记，使文字以特殊的方式显示。</span><br><span class="line">粗体：&lt;strong&gt;、&lt;b&gt;已废弃，不建议使用</span><br><span class="line">斜体：&lt;em&gt;、&lt;i&gt;已废弃，不建议使用</span><br><span class="line">删除线：&lt;del&gt;、&lt;s&gt;已废弃，不建议使用</span><br><span class="line">下划线：&lt;ins&gt;、&lt;u&gt;已废弃，不建议使用</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="图像标签"><a href="#图像标签" class="headerlink" title="图像标签"></a>图像标签</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PLAINTEXT</span><br><span class="line">图像标签：img</span><br><span class="line">该语法中src属性用于指定图像文件的路径和文件名，它是img标签的必要属性。</span><br><span class="line">&lt;img src=&quot;图像URL&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="手册文档"><a href="#手册文档" class="headerlink" title="手册文档"></a>手册文档</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/html_ref_entities.html">字符实体 HTML ISO-8859-1</a></li>
+</ul>
+<hr>
+<h1 id="HTML进阶"><a href="#HTML进阶" class="headerlink" title="HTML进阶"></a>HTML进阶</h1><h3 id="meta"><a href="#meta" class="headerlink" title="meta"></a>meta</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;upgrade-insecure-requests&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="link标签"><a href="#link标签" class="headerlink" title="link标签"></a>link标签</h3><blockquote>
+<p>因为页面切换主题网速慢会出现空白区域影响体验，就了解相关优化方法，下面做个整理</p>
+</blockquote>
+<p><strong>rel</strong></p>
+<ul>
+<li><p><code>preload</code>优先加载（<code>as</code>必填的吧）</p>
+</li>
+<li><p><code>prefetch</code>预加载（空闲时加载）</p>
+</li>
+<li><p><code>dns-prefetch</code>使浏览器主动去执行域名解析的功能。</p>
+</li>
+<li><p><code>preconnect</code>浏览器要建立一个连接，一般需要经过DNS查找，TCP三次握手和TLS协商（如果是https的话），这些过程都是需要相当的耗时的，所以preconnet，就是一项使浏览器能够预先建立一个连接，等真正需要加载资源的时候就能够直接请求了。</p>
+</li>
+<li><p>prerender不仅会加载资源，还会解执行页面，进行预渲染，但是这都是根据浏览器自身进行判断。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 浏览器加载资源顺序如下 --&gt;</span><br><span class="line">&lt;link rel=&quot;prefetch&quot; as=&quot;video&quot; href=&quot;4.html&quot;&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;2.css&quot;&gt;</span><br><span class="line">&lt;script src=&quot;3.html&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;link rel=&quot;prefetch&quot; href=&quot;5.html&quot;&gt;</span><br><span class="line">&lt;link rel=&quot;preload&quot; as=&quot;style&quot; href=&quot;1.css&quot;&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>as</strong></p>
+<ul>
+<li><code>audio</code>Audio file.</li>
+<li><code>document</code>An HTML document intended to be embedded inside a <code>&lt;frame&gt;</code> or <code>&lt;iframe&gt;</code>.</li>
+<li><code>embed</code>A resource to be embedded inside an <code>&lt;embed&gt;</code> element.</li>
+<li><code>fetch</code>Resource to be accessed by a fetch or XHR request, such as an ArrayBuffer or JSON file.</li>
+<li><code>font</code>Font file.</li>
+<li><code>image</code>Image file.</li>
+<li><code>object</code>A resource to be embedded inside an <code>&lt;embed&gt;</code> element.</li>
+<li><code>script</code>JavaScript file.</li>
+<li><code>style</code>Stylesheet.</li>
+<li><code>track</code>WebVTT file.</li>
+<li><code>worker</code>A JavaScript web worker or shared worker.</li>
+<li><code>video</code>Video file.</li>
+</ul>
+<h3 id="h5链接唤起App"><a href="#h5链接唤起App" class="headerlink" title="h5链接唤起App"></a>h5链接唤起App</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;mqq://&quot;&gt;qq&lt;/a&gt;</span><br><span class="line">&lt;a href=&quot;mqqapi://forward/url?souce=baidu.com&quot;&gt;qq内置浏览器&lt;/a&gt;</span><br><span class="line">&lt;a href=&quot;weixin://&quot;&gt;微信&lt;/a&gt;</span><br><span class="line">&lt;a href=&quot;TencentWeibo://&quot;&gt;腾讯微博&lt;/a&gt;</span><br><span class="line">&lt;a href=&quot;taobao://&quot;&gt;淘宝&lt;/a&gt;</span><br><span class="line">&lt;a href=&quot;alipay://&quot;&gt;支付宝&lt;/a&gt;</span><br><span class="line">&lt;a href=&quot;sinaweibo://&quot;&gt;新浪微博&lt;/a&gt;</span><br><span class="line">&lt;a href=&quot;snssdk1128://&quot;&gt;抖音&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>微信相关</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">微信 weixin://</span><br><span class="line">!发起群聊 weixin://dl/groupchat</span><br><span class="line">通讯录</span><br><span class="line">!添加朋友 weixin://dl/add</span><br><span class="line"></span><br><span class="line">上报日志 weixin://dl/log</span><br><span class="line">故障修复 搜索 :recover</span><br><span class="line">新的朋友 weixin://dl/recommendation</span><br><span class="line"></span><br><span class="line">群聊 weixin://dl/groups</span><br><span class="line">标签 weixin://dl/tags</span><br><span class="line">公众号 weixin://dl/officialaccounts</span><br><span class="line">发现</span><br><span class="line">朋友圈 weixin://dl/moments</span><br><span class="line">扫一扫 weixin://dl/scan</span><br><span class="line">购物（京东） weixin://dl/shopping</span><br><span class="line">游戏 weixin://dl/games</span><br><span class="line">我</span><br><span class="line">个人信息 weixin://dl/profile</span><br><span class="line">名字 weixin://dl/setname</span><br><span class="line">我的二维码 weixin://dl/myQRcode</span><br><span class="line">我的地址 weixin://dl/myaddress</span><br><span class="line">相册 weixin://dl/posts</span><br><span class="line">收藏 weixin://dl/favorites</span><br><span class="line">优惠券 weixin://dl/card</span><br><span class="line">表情 weixin://dl/stickers</span><br><span class="line">设置 weixin://dl/settings</span><br><span class="line"></span><br><span class="line">QQ 号 weixin://dl/bindqq</span><br><span class="line">手机号 weixin://dl/bindmobile</span><br><span class="line">邮箱地址 weixin://dl/bindemail</span><br><span class="line">帐号保护 weixin://dl/protection</span><br><span class="line">新消息通知 weixin://dl/notifications</span><br><span class="line"></span><br><span class="line">通讯录黑名单 weixin://dl/blacklist</span><br><span class="line"></span><br><span class="line">不让他（她）看我的朋友圈 weixin://dl/hidemoments</span><br><span class="line">不看他（她）的朋友圈 weixin://dl/blockmoments</span><br><span class="line">通用 weixin://dl/general</span><br><span class="line"></span><br><span class="line">多语言 weixin://dl/languages</span><br><span class="line">字体大小 weixin://dl/textsize</span><br><span class="line">我的表情 weixin://dl/stickersetting</span><br><span class="line">朋友圈小视频 weixin://dl/sight</span><br><span class="line">功能 weixin://dl/features</span><br><span class="line"></span><br><span class="line">通讯录同步助手 weixin://dl/securityassistant</span><br><span class="line">群发助手 weixin://dl/broadcastmessage</span><br><span class="line">聊天记录迁移 weixin://dl/chathistory</span><br><span class="line">清理微信存储空间 weixin://dl/clear</span><br><span class="line">帮助与反馈</span><br><span class="line">意见反馈 weixin://dl/help 或 weixin://dl/feedback</span><br><span class="line">关于微信 weixin://dl/about</span><br><span class="line">其他</span><br><span class="line">隐藏入口 参数不明 第三方 Webview 接口 weixin://dl/businessWebview/link/</span><br><span class="line">隐藏入口 参数不明 第三方游戏库接口 weixin://dl/businessGame/library/</span><br><span class="line">隐藏入口 参数不明 第三方游戏详情接口 weixin://dl/businessGame/detail/</span><br><span class="line">隐藏入口 参数不明 第三方支付接口 weixin://dl/businessPay/</span><br><span class="line">隐藏入口 参数不明 第三方临时会话接口 weixin://dl/business/tempsession/ 或 weixin://dl/businessTempSession/</span><br><span class="line">未知</span><br><span class="line">weixin://dl/chat</span><br><span class="line">weixin://dl/designeremoji</span><br><span class="line">weixin://dl/login/common_view</span><br><span class="line">weixin://dl/login/phone_view</span><br><span class="line">weixin://dl/personalemoticon</span><br><span class="line">weixin://private/</span><br><span class="line">weixin://private/setresult/</span><br><span class="line">weixin://dl/updatenewestversion</span><br><span class="line">weixin://dl/wechatout</span><br><span class="line">weixin://dl/wechatoutcoupon</span><br><span class="line">隐藏入口</span><br><span class="line"></span><br><span class="line">第三方公众号临时会话接口</span><br><span class="line">weixin://dl/business参数 ticket</span><br><span class="line">weixin://dl/business/?ticket=</span><br></pre></td></tr></table></figure>
+
+<h3 id="缓存功能"><a href="#缓存功能" class="headerlink" title="缓存功能"></a>缓存功能</h3><p>好像被废弃掉了，慎用！</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;html lang=&quot;zh-CN&quot; manifest=&quot;/manifest/main.appcache&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="HTML5中audio与video："><a href="#HTML5中audio与video：" class="headerlink" title="HTML5中audio与video："></a>HTML5中audio与video：</h3><h4 id="音频"><a href="#音频" class="headerlink" title="音频"></a>音频</h4><p>HTML5 中提供的音频 API 标签为 <code>&lt;audio&gt;&lt;/audio&gt;</code>，使用示例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio src=&quot;野狼disco.m4a&quot; controls&gt;&lt;/audio&gt;</span><br></pre></td></tr></table></figure>
+
+<p>兼容写法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio controls&gt;</span><br><span class="line">    &lt;source src=&quot;resource/audio/OUTPUT.mp3&quot; type=&#x27;audio/mpeg&#x27;&gt;</span><br><span class="line">    &lt;source src=&quot;resource/audio/OUTPUT.aac&quot; type=&#x27;audio/aac; codecs=&quot;aac&quot;&#x27;&gt;</span><br><span class="line">    &lt;source src=&quot;resource/audio/OUTPUT.ogg&quot; type=&#x27;audio/ogg; codecs=&quot;vorbis&quot;&#x27;&gt;</span><br><span class="line"></span><br><span class="line">    您的浏览器不支持，&lt;a href=&quot;resource/audio/OUTPUT.mp3&quot;&gt;请下载&lt;/a&gt;</span><br><span class="line">&lt;/audio&gt;</span><br></pre></td></tr></table></figure>
+
+<p>当浏览器不支持或者当前音乐地址失效时会分别访问 <code>source</code> 提供的路径，如果全部失效则提示最下边的文本。</p>
+<h4 id="音乐属性"><a href="#音乐属性" class="headerlink" title="音乐属性"></a>音乐属性</h4><table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>controls</code></td>
+<td>显示控件</td>
+</tr>
+<tr>
+<td><code>autoplay</code></td>
+<td>自动播放</td>
+</tr>
+<tr>
+<td><code>loop</code></td>
+<td>循环播放</td>
+</tr>
+<tr>
+<td><code>preload</code></td>
+<td>预加载</td>
+</tr>
+<tr>
+<td><code>muted</code></td>
+<td>静音</td>
+</tr>
+</tbody></table>
+<h4 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h4><p>HTML5 中提供的音频 API 标签为 <code>&lt;video&gt;&lt;/video&gt;</code>，使用示例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;video src=&quot;不能说的秘密.mp4&quot; controls&gt;&lt;/video&gt;</span><br></pre></td></tr></table></figure>
+
+<p>兼容写法与音乐相同</p>
+<h4 id="视频属性"><a href="#视频属性" class="headerlink" title="视频属性"></a>视频属性</h4><table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>controls</code></td>
+<td>显示控件</td>
+</tr>
+<tr>
+<td><code>autoplay</code></td>
+<td>自动播放</td>
+</tr>
+<tr>
+<td><code>loop</code></td>
+<td>循环播放</td>
+</tr>
+<tr>
+<td><code>muted</code></td>
+<td>静音</td>
+</tr>
+<tr>
+<td><code>poster</code></td>
+<td>预览图片设置</td>
+</tr>
+<tr>
+<td><code>preload</code></td>
+<td>预加载 <code>none</code>: 不预先加载任何数据 <code>metadata</code>: 只预先加载元数据 （视频总时长，第一帧画面图形等） <code>auto</code>: 预先加载视频</td>
+</tr>
+</tbody></table>
+<h4 id="音视频事件"><a href="#音视频事件" class="headerlink" title="音视频事件"></a>音视频事件</h4><table>
+<thead>
+<tr>
+<th>事件名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>onloadedmetadata</code></td>
+<td>当音频元数据加载完毕时触发，作用<strong>在于获取音视频文件的总时长</strong></td>
+</tr>
+<tr>
+<td><code>ontimeupdate</code></td>
+<td>当音频播放时间变化时触发</td>
+</tr>
+<tr>
+<td><code>onvolumechange</code></td>
+<td>当声音改变时触发</td>
+</tr>
+</tbody></table>
+<h4 id="音视频对象属性"><a href="#音视频对象属性" class="headerlink" title="音视频对象属性"></a>音视频对象属性</h4><p>可读可写属性</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>currentTime</code></td>
+<td>音频已经播放时长（返回未格式化的秒）</td>
+</tr>
+<tr>
+<td><code>volume</code></td>
+<td>控制音量。值为 0 ~ 1 的任意值。</td>
+</tr>
+<tr>
+<td><code>muted</code></td>
+<td>布尔值。静音。（ture 表示静音，false 表示非静音）</td>
+</tr>
+<tr>
+<td><code>playbackRate</code></td>
+<td>播放速率</td>
+</tr>
+</tbody></table>
+<p>只读属性</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>duration</code></td>
+<td>音频总时长（返回未格式化的秒）</td>
+</tr>
+<tr>
+<td><code>paused</code></td>
+<td>布尔值。音频文件是否暂停。（ture 表示暂停，false 表示播放）</td>
+</tr>
+<tr>
+<td><code>ended</code></td>
+<td>布尔值。音频文件播放结束（ture 表示播放结束，false 表示播放中或者暂停）</td>
+</tr>
+</tbody></table>
+<h4 id="音视频对象方法"><a href="#音视频对象方法" class="headerlink" title="音视频对象方法"></a>音视频对象方法</h4><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>pause</code></td>
+<td>暂停</td>
+</tr>
+<tr>
+<td><code>play</code></td>
+<td>播放</td>
+</tr>
+</tbody></table>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/blog/posts/60656315.html">「学习笔记」HTML基础</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/blog/posts/2868157445.html">U盘PE装原版Win10系统教程</a></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.5';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/blog/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

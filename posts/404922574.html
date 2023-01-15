@@ -69,7 +69,7 @@
 
   
 
-<header class="header"><div class="logo-wrap"><a class="title" href="/blog/"><div class="main" ff="title">XC's Blog</div></a></div>
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/blog/about/"><div class="bg" style="opacity:0;background-image:url(https://cdn1.tianli0.top/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://npm.elemecdn.com/webxc@1.0.0/logo/logo.jpg" onerror="javascript:this.classList.add('error');this.src='https://cdn1.tianli0.top/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/blog/"><div class="main" ff="title">XC's Blog</div></a></div>
 
 <nav class="menu dis-select"></nav>
 </header>
@@ -96,7 +96,7 @@
 
 <div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/blog/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/blog/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/blog/categories/%E5%89%8D%E7%AB%AF%E7%BB%8F%E9%AA%8C/">前端经验</a></div><div id="post-meta">发布于&nbsp;<time datetime="2021-08-02T00:00:00.000Z">2021-08-02</time></div></div>
 
-<article class='md-text content post'>
+<article class='md-text content heti post'>
 <h1 class="article-title"><span>CSS笔记</span></h1>
 <h3 id="CSS笔记"><a href="#CSS笔记" class="headerlink" title="CSS笔记"></a>CSS笔记</h3><p>link rel&#x3D;”stylesheet” href&#x3D;”文件名”<br>margin:0px auto;（块级元素居中）和width：的组合<br>写2个数：第一个代表上下，第二个代表左右<br>写3个数:第一个代表上，第二个代表左右,第三个下<br>写4个数：上，右，下,左<br>text-align:center；（行级元素居中）<br>list-style：none （去除符号）<br>clear：both（去除浮动）<br>overflow:hidden;(超过大小就不显示)<br>overflow:scroll  滚动条<br>border:none;outline:none;去除按钮边框</p>
 <h3 id="li-nth-child-1-：第一个"><a href="#li-nth-child-1-：第一个" class="headerlink" title="li:nth-child(1)：第一个"></a>li:nth-child(1)：第一个</h3><p>transform：移动、旋转、倾斜、3D转换<br>none<br>定义不进行转换。<br>translate(x,y)<br>定义 2D 转换。<br>translate3d(x,y,z)<br>定义 3D 转换。<br>translateX(x)<br>定义转换，只是用 X 轴的值。<br>translateY(y)<br>定义转换，只是用 Y 轴的值。<br>translateZ(z)<br>定义 3D 转换，只是用 Z 轴的值。<br>scale(x,y)<br>定义 2D 缩放转换。<br>scale3d(x,y,z)<br>定义 3D 缩放转换。<br>scaleX(x)<br>通过设置 X 轴的值来定义缩放转换。<br>scaleY(y)<br>通过设置 Y 轴的值来定义缩放转换。<br>scaleZ(z)<br>通过设置 Z 轴的值来定义 3D 缩放转换。<br>rotate(angle)<br>定义 2D 旋转，在参数中规定角度。<br>rotate3d(x,y,z,angle)<br>定义 3D 旋转。<br>rotateX(angle)<br>定义沿着 X 轴的 3D 旋转。<br>rotateY(angle)<br>定义沿着 Y 轴的 3D 旋转。<br>rotateZ(angle)<br>定义沿着 Z 轴的 3D 旋转。<br>skew(x-angle,y-angle)<br>定义沿着 X 和 Y 轴的 2D 倾斜转换。<br>skewX(angle)<br>定义沿着 X 轴的 2D 倾斜转换。<br>skewY(angle)<br>定义沿着 Y 轴的 2D 倾斜转换。<br>perspective(n)</p>
@@ -337,7 +337,7 @@
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本站由 <a href="/">@XC’s Blog</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>
@@ -455,7 +455,7 @@
 
   // required plugins (only load if needs)
   stellar.plugins = {
-    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+    jQuery: 'https://npm.elemecdn.com/jquery@3.6.2/dist/jquery.min.js'
   };
 
   if ('local_search') {
@@ -473,22 +473,22 @@
   stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
   // optional plugins
   if ('true' == 'true') {
-    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://npm.elemecdn.com/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
   }
   if ('true' == 'true') {
-    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://npm.elemecdn.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://npm.elemecdn.com/swiper@8.4.5/swiper-bundle.min.js"});
   }
   if ('' == 'true') {
-    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://npm.elemecdn.com/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
   }
   if ('true' == 'true') {
-    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn1.tianli0.top/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn1.tianli0.top/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
   }
   if ('true' == 'true') {
-    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.css","selector":".tk-content img:not([class*=\"emo\"])"});
   }
-  if ('false' == 'true') {
-    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  if ('true' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":true,"css":"https://cdn1.tianli0.top/gh/web-xc/My-blog-CSS/main.css","js":"https://www.shifeiti.com/js/main.js"});
   }
 </script>
 
